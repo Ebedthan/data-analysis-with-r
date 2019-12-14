@@ -1,0 +1,16 @@
+```{r setup, include=FALSE}
+# figure height, width, dpi
+knitr::opts_chunk$set(fig.height = 2.5, fig.width = 5, dpi = 300) 
+
+# fontawesome
+htmltools::tagList(rmarkdown::html_dependency_font_awesome())
+```
+layout: true
+
+<div class="my-footer">
+  <span>
+  <a href="https://anicet.xyz/" target="_blank">anicet.xyz</a>
+  </span>
+  </div> 
+  
+---
