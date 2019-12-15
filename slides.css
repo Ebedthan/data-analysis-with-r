@@ -10,13 +10,16 @@ h1, h3, h4 {
   font-family: 'Roboto condensed';
 }
 
+.remark-slide-content h1{
+  font-size: 44px;
+}
 p {
   font-family: 'Roboto condensed';
   font-size: 24px;
 }
 
 .remark-slide-content {
-  font-size: 24px;
+  font-size: 22px;
   font-family: 'Roboto condensed';
 }
 
@@ -71,7 +74,7 @@ div.my-footer a {
 .instructions {
   border-left: solid 5px #FFD748;
   background-color: #FFD74850;
-  font-size: 90%;
+  font-size: 18px;
   padding: 1px 16px;
   margin-top: 12px;
   margin-bottom: 12px;
@@ -91,3 +94,19 @@ div.my-footer a {
   margin-top: 12px;
   margin-bottom: 12px;
 }
+
+/* Lists */
+ul {
+  list-style: none;
+}
+
+li::before {
+  content: "✚"; 
+  display: inline-block; 
+  width: 1.5em;
+  margin-left: -1.5em;
+}
+
+/*li{
+  margin: 10px 0;
+}*/

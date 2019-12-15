@@ -1,0 +1,213 @@
+---
+output:
+  xaringan::moon_reader:
+    css: [default, ../slides.css]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+class: middle, first-slide
+
+.pull-left[
+<p style="font-size: 62px;"><b>L'Analyse de données avec</b></p>
+]
+
+.pull-right[
+<img src="../img/Rlogo.png" width="100%" height="auto">
+]
+<h1 style="text-align:center;">A la découverte des outils `r emo::ji('hammer')`</h1>
+<div class="author">
+  <h3><a href="http://anicet.xyz">Anicet Ebou</a></h3>
+</div>
+<h4 style="text-align:center;">`r format(Sys.time(), "%a %d %b %Y")`, Seminaire @ Agence Emploi Jeunes, Abidjan</h4>
+---
+
+class: center, middle, inverse
+
+# La reproductibilité
+
+---
+
+# L'Analyse reproductible
+
+.question[
+Qu'est ce que c'est qu'une analyse de donnée 'reproductible' ?
+]
+
+--
+
+A cours terme (lors d'un projet):
+- Est ce que les figures et les tableaux peuvent être reproduis à partir des codes et données ?
+- Est ce que le code fais, réagis comme on l'attends?
+- Sait-on en plus **pourquoi** les choses ont été faites comme cela?
+
+A long terme:
+- Peut-on utiliser le même code pour analyser d'autres données?
+- Le code peut-il être amélioré pour d'autres analyses?
+
+---
+
+# Les outils
+
+![toolkit](./img/toolkit.png)
+
+- Les scripts avec $\rightarrow$ R
+- La programmation littérale avec $\rightarrow$ RMarkdown
+- La gestion des versions $\rightarrow$ Git/Github
+
+---
+
+class: center, middle, inverse
+
+# R and RStudio
+
+---
+
+# Qu'est ce que R/RStudio?
+
+- R est un langage de programmation statistique.
+- RStudio est une interface convenable pour R (IDE).
+- De facon plus simple: R est comme le moteur et RStudio est comme le tableau de bord.  
+
+![engine-dashboard](./img/engine-dashboard.png)
+
+.footnote[
+source: ModernDive
+]
+
+---
+
+# Un petit tour de R/RStudio
+
+- La console.
+- Utiliser R comme une calculatrice.
+- Environnement.
+- Charger et visualiser un tableau: programmaticallement et graphiquement.
+
+```{r eval=FALSE}
+table <- readxl::read_excel("dataframe.xlsx")
+View(table)
+```
+
+Panneau environnement $\rightarrow$ import Dataset $\rightarrow$ Selectionnez le type de fichier $\rightarrow$ Selectionnez le fichier $\rightarrow$ Definissez les parametres $\rightarrow$ cliquer sur importer
+
+---
+
+# Un petit tour de R/RStudio
+
+- Acceder a une variable dans un tableau: avec le symbole $.
+
+```{r eval=FALSE}
+table$var_name ou table[,numColumn]
+```
+
+- Fonctions dans R: ce sont la plupart du temps des verbes suivie de parentheses.
+
+```{r eval=FALSE}
+fais_ceci(a_ceci)
+fais_cela(a_ceci, a_cela, avec_ca)
+```
+
+- Les packages sont installés avec la fonction `install.packages()` et chargé avec la fonction `library()`:
+
+```{r eval=FALSE}
+install.packages("package_name")
+library(package_name)
+```
+---
+
+# Tidyverse
+
+.pull-left[
+![](./img/tidyverse.png)
+]
+
+.pull-right[
+[tidyverse.org](https://tidyverse.org)
+
+- Le tidyverse est une collection de paquets R conçus pour la data science.
+- Tous les packages partagent une même philosophie sous-jacente et une grammaire commune. 
+]
+---
+
+class: center, middle, inverse
+
+# R Markdown
+
+---
+
+# R Markdown
+
+- Rapports entièrement reproductibles: chaque fois que vous reconstruisez le fichier, l'analyse est exécutée depuis le début.
+- Une simple syntax utilisant markdown.
+- Les codes vont dans les chuncks, défini par trois backticks, les textes vont à l'extérieur des chuncks.
+
+---
+
+# Un petit tour de R Markdown
+
+- Ouvrir un document R Markdown.  
+- Construisez vos documents.  
+- R Markdown et certaines syntaxes.  
+
+---
+
+# EA 02 -
+
+---
+
+# R Markdown help
+
+.pull-left[
+[R Markdown cheat sheet](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf)
+![rmd-cheatsheet](./img/rmd-cheatsheet.png)
+]
+
+.pull-right[
+R Markdown Quick Reference  
+
+Help $\rightarrow$ Markdown Quick Reference
+
+![rmd-cheat](./img/md-cheatsheet.png.jpeg)
+]
+---
+
+# Workspace
+
+Un élément essentiel duquel il faut a tout prix se rappeler: L'espace de travail du document **R Markdown** est différent de celui de la **console**.
+
+- Lancez cette commande dans la console:
+
+```{r eval=FALSE}
+x <-2
+x*4
+```
+
+.instructions[
+Tout semble bien se passer n'est ce pas?
+]
+
+- Maintenant lancez cette ligne dans le R Markdown:
+```{r eval=FALSE}
+x*4
+```
+
+.instructions[
+Qu'est ce que vous remarquez?
+]
+
+---
+
+# Comment il faudrait utiliser le R Markdown
+
+- Chaque projet, analyse, rapport, etc devrait être redigé dans un R Markdown.
+- C'est une habitude à prendre.
+
+---
+class: center, middle
+
+# Fin de la deuxieme session !
+# Merci !
+<h1> `r emo::ji("clap")` </h1>
