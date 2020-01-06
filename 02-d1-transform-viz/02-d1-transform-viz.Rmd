@@ -1,27 +1,24 @@
 ---
 output:
   xaringan::moon_reader:
+    seal: false
     css: [default, ../slides.css]
     lib_dir: libs
     nature:
-      highlightStyle: solarized-dark
+      highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
 ---
-class: middle, first-slide
+class: center, middle, first-slide
 
-.pull-left[
-<p style="font-size: 62px;"><b>L'Analyse de données avec</b></p>
-]
+<p style="font-size: 48px;"><b>L'Analyse de données avec </b><img src="../img/Rlogo.png" width="60px" height="auto"></p>
 
-.pull-right[
-<img src="../img/Rlogo.png" width="100%" height="auto">
-]
-<h1 style="text-align:center;">La visualisation des données `r emo::ji('graph')`</h1>
+<h3>La visualisation des données `r emo::ji('graph')`</h3>
+<br/>
 <div class="author">
-  <h3><a href="https://anicet.xyz">Anicet Ebou</a></h3>
+  <h3>Anicet Ebou</h3>
 </div>
-<h4 style="text-align:center;">`r format(Sys.time(), "%a %d %b %Y")`, Seminaire @ Agence Emploi Jeunes, Abidjan</h4>
+<h5>2020-01-27 - 2020-01-29, Seminaire @ Agence Emploi Jeunes, Abidjan</h5>
 ---
 ```{r child = "../setup.Rmd"}
 ```
@@ -31,7 +28,7 @@ library(tidyverse)
 source("create_table.R")
 ```
 
-class: center, middle
+class: center, middle, inverse
 
 # La visualisation des données
 
@@ -116,7 +113,7 @@ library(tidyverse)
 ```
 ---
 
-class: middle, center
+class: middle, center, inverse
 
 # Visualisons une partie de afrods
 
@@ -209,7 +206,7 @@ D'autres variables additionnelles peuvent être ajoutés:
 
 ---
 
-class: center, middle
+class: center, middle, inverse
 
 # Aesthetics
 
@@ -274,7 +271,7 @@ shape         | different shape for each | ne doit pas marcher (et ne marche pas
 
 ---
 
-class: center, middle
+class: center, middle, inverse
 
 # Sous graphiques
 
@@ -344,7 +341,7 @@ ggplot(data = agri_all, mapping = aes(x = agri_val_added, y = land)) +
 
 ---
 
-class: middle, center
+class: middle, center, inverse
 
 # Identification des variables
 
@@ -366,7 +363,7 @@ ggplot
 
 ---
 
-class: middle, center
+class: middle, center, inverse
 
 # La visualisation des données numériques
 
@@ -410,7 +407,7 @@ ggplot(data = agri_all, mapping = aes(y = land, x = country)) +
 
 ---
 
-class: center, middle
+class: center, middle, inverse
 
 # La visualisation des données catégorielles
 

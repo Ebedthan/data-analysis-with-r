@@ -1,6 +1,7 @@
 ---
 output:
   xaringan::moon_reader:
+    seal: false
     css: [default, ../slides.css]
     lib_dir: libs
     nature:
@@ -8,20 +9,17 @@ output:
       highlightLines: true
       countIncrementalSlides: false
 ---
-class: middle, first-slide
+class: center, middle, first-slide
 
-.pull-left[
-<p style="font-size: 62px;"><b>L'Analyse de données avec</b></p>
-]
-
-.pull-right[
-<img src="../img/Rlogo.png" width="100%" height="auto">
-]
-<h1 style="text-align:center;">Welcome `r emo::ji('raised_hands')`</h1>
+<h2>L'analyse des données avec <img src="../img/Rlogo.png" width="60px" height="auto"></h2>
+  
+<h3>Akwaba `r emo::ji('hand')`</h3>
+<br/>
 <div class="author">
-  <h3><a href="http://anicet.xyz">Anicet Ebou</a></h3>
+  <h3>Anicet Ebou</h3>
 </div>
-<h4 style="text-align:center;">`r format(Sys.time(), "%a %d %b %Y")`, Seminaire @ Agence Emploi Jeunes, Abidjan</h4>
+<h5>2020-01-27 - 2020-01-29, Seminaire @ Agence Emploi Jeunes, Abidjan</h5>
+
 ---
 
 class: center, middle, inverse
@@ -30,7 +28,7 @@ class: center, middle, inverse
 
 ---
 
-# Data Science ?
+## Data Science ?
 
 .quote[
 Data science is an exciting discipline that allows you to turn raw data into understanding, insight, and knowledge.
@@ -50,11 +48,11 @@ Objectif: Tirer des informations, parfois auquelles ont ne s'attends pas, des do
 ---
 class: center, middle, inverse
 
-# Des exemples...
+## Des exemples...
 
 ---
 
-# Analyse des tweets de Donald Trump
+## Analyse des tweets de Donald Trump
 
 .pull-left[
 "L'analyse des tweets de Trump confirme que les tweets venant reelement de lui sont colerique et viennent d'Android."
@@ -69,7 +67,7 @@ http://varianceexplained.org/r/trump-tweets/
 ]
 ---
 
-# Comment Alexa distingue les accents d'anglais?
+## Comment Alexa distingue les accents d'anglais?
 
 .pull-left[
 "Il y a une claire différence entre la longueur entre les mots entre les natifs et les non-natifs."
@@ -89,44 +87,39 @@ class: center, middle, inverse
 
 ---
 
-# Rejoignez RStudio Cloud
+## Rejoignez RStudio Cloud
 
 
 
 ---
 
-# EA - 01 AFRODS
+## EA - 01 AFRODS
 
 
 ---
 class: center, middle, inverse
 
-# Code de conduite et de participation
+## Code de conduite et de participation
 
 ---
 
-# Code de conduite et de participation
+## Code de conduite et de participation
 
 - Tous les points de vue sont les bienvenus;
 
 --
-
 - Tout le monde a le droit d'intervenir;
 
 --
-
 - Tout le monde doit faire l'effort d'être à l'heure;
 
 --
-
 - Eviter les propos désagréables envers ces collègues lors des sessions;
 
 --
-
 - Participer et faire les applications;
 
 --
-
 - Etre toujours souriant.
 
 ---

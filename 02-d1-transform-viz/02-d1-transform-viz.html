@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
   <head>
-    <title>02-d1-transform-viz.utf8.md</title>
+    <title>02-d1-transform-viz.utf8</title>
     <meta charset="utf-8" />
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/font-awesome/css/all.css" rel="stylesheet" />
@@ -11,20 +11,16 @@
   <body>
     <textarea id="source">
 
-class: middle, first-slide
+class: center, middle, first-slide
 
-.pull-left[
-&lt;p style="font-size: 62px;"&gt;&lt;b&gt;L'Analyse de données avec&lt;/b&gt;&lt;/p&gt;
-]
+&lt;p style="font-size: 48px;"&gt;&lt;b&gt;L'Analyse de données avec &lt;/b&gt;&lt;img src="../img/Rlogo.png" width="60px" height="auto"&gt;&lt;/p&gt;
 
-.pull-right[
-&lt;img src="../img/Rlogo.png" width="100%" height="auto"&gt;
-]
-&lt;h1 style="text-align:center;"&gt;La visualisation des données 📉&lt;/h1&gt;
+&lt;h3&gt;La visualisation des données 💹&lt;/h3&gt;
+&lt;br/&gt;
 &lt;div class="author"&gt;
-  &lt;h3&gt;&lt;a href="https://anicet.xyz"&gt;Anicet Ebou&lt;/a&gt;&lt;/h3&gt;
+  &lt;h3&gt;Anicet Ebou&lt;/h3&gt;
 &lt;/div&gt;
-&lt;h4 style="text-align:center;"&gt;Fri 27 Dec 2019, Seminaire @ Agence Emploi Jeunes, Abidjan&lt;/h4&gt;
+&lt;h5&gt;2020-01-27 - 2020-01-29, Seminaire @ Agence Emploi Jeunes, Abidjan&lt;/h5&gt;
 ---
 
 
@@ -32,15 +28,17 @@ layout: true
 
 &lt;div class="my-footer"&gt;
   &lt;span&gt;
-  &lt;a href="https://anicet.xyz/" target="_blank"&gt;anicet.xyz&lt;/a&gt;
+    Agence Emploi Jeunes, Abidjan - Séminaire de formation
+    &lt;span&gt;&lt;/span&gt;
+    Slides: &lt;a href="https://anicet.xyz/" target="_blank"&gt;anicet.xyz&lt;/a&gt;
   &lt;/span&gt;
-  &lt;/div&gt; 
+&lt;/div&gt; 
   
 ---
 
 
 
-class: center, middle
+class: center, middle, inverse
 
 # La visualisation des données
 
@@ -142,7 +140,7 @@ library(tidyverse)
 ```
 ---
 
-class: middle, center
+class: middle, center, inverse
 
 # Visualisons une partie de afrods
 
@@ -274,7 +272,7 @@ D'autres variables additionnelles peuvent être ajoutés:
 
 ---
 
-class: center, middle
+class: center, middle, inverse
 
 # Aesthetics
 
@@ -348,7 +346,7 @@ shape         | different shape for each | ne doit pas marcher (et ne marche pas
 
 ---
 
-class: center, middle
+class: center, middle, inverse
 
 # Sous graphiques
 
@@ -430,7 +428,7 @@ ggplot(data = agri_all, mapping = aes(x = agri_val_added, y = land)) +
 
 ---
 
-class: middle, center
+class: middle, center, inverse
 
 # Identification des variables
 
@@ -452,7 +450,7 @@ ggplot
 
 ---
 
-class: middle, center
+class: middle, center, inverse
 
 # La visualisation des données numériques
 
@@ -505,7 +503,7 @@ ggplot(data = agri_all, mapping = aes(y = land, x = country)) +
 
 ---
 
-class: center, middle
+class: center, middle, inverse
 
 # La visualisation des données catégorielles
 
@@ -573,7 +571,7 @@ class: center, middle
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
-"highlightStyle": "solarized-dark",
+"highlightStyle": "github",
 "highlightLines": true,
 "countIncrementalSlides": false
 });

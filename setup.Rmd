@@ -48,8 +48,9 @@ layout: true
 
 <div class="my-footer">
   <span>
-  <a href="https://anicet.xyz/" target="_blank">anicet.xyz</a>
+    Agence Emploi Jeunes, Abidjan - Séminaire de formation - 
+    Slides: <a href="https://anicet.xyz/" target="_blank">anicet.xyz</a>
   </span>
-  </div> 
+</div> 
   
 ---

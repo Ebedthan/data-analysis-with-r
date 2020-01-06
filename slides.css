@@ -1,35 +1,33 @@
 /* fonts */
-@import url(https://fonts.googleapis.com/css?family=Roboto+condensed:300,400,600,700);
-@import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
 
-.author {
+.inverse {
+  background-color: #3e424b;
+}
+.author h3 {
   text-align: center;
   color: 	#2369BE;
 }
 
-h1, h3, h4 {
-  font-family: 'Roboto condensed';
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Roboto', sans-serif;
+  color: #3e424b;
 }
 
-.left-colum h2 {
-  font-size: 22px;
-}
-.remark-slide-content{
-  font-size: 42px;
-}
 p {
-  font-family: 'Roboto condensed';
+  font-family: 'Open Sans', sans-serif;
 }
 
 .remark-slide-content {
   font-size: 22px;
-  font-family: 'Roboto condensed';
+  font-family: 'Open Sans', sans-serif;
 }
 
 /* Footer */
 div.my-footer {
-    background-color: #ffffff;
-    border-top: 1px solid #A7D5E8;
+    background-color: #3e424b;
+    border-top: 1px solid #ffffff;
     position: absolute;
     bottom: 0px;
     left: 80px;
@@ -39,24 +37,33 @@ div.my-footer {
 div.my-footer span {
     font-size: 12pt;
     position: absolute;
-    color: #333333;
+    color: #fff;
     left: 20px;
     bottom: 10px;
 }
 div.my-footer a {
     font-size: 12pt;
-    color: #333333;
+    color: #fff;
+    text-decoration: underline;
 }
 
 /* Slide number */
 .remark-slide-number {
-  color: #333333;
+  color: #3e424b;
+  opacity: 1;
+  font-size: 12pt;
+}
+
+.inverse .remark-slide-number {
+  color: #ffffff;
   opacity: 1;
   font-size: 12pt;
 }
 
 .first-slide .remark-slide-number{
-  display:none;
+  display: none;
+  background-color: #ffffff;
+  margin-top: 50px;
 }
 
 /* Custom boxes */
@@ -93,7 +100,7 @@ div.my-footer a {
   border-left: solid 2.5px #A7D5E8;
   background-color: #2369BE;
   color: white;
-  font-size: 14px;
+  font-size: 20px;
   padding: 1px 16px;
   margin-top: 12px;
   margin-bottom: 12px;
