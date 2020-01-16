@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
   <head>
-    <title>00-d1-welcome.utf8</title>
+    <title>01-d1-the-toolkit.utf8</title>
     <meta charset="utf-8" />
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link rel="stylesheet" href="../slides.css" type="text/css" />
@@ -9,125 +9,216 @@
   <body>
     <textarea id="source">
 
-class: center, middle, first-slide
+class: first-slide
 
-&lt;h2&gt;L'analyse des données avec &lt;img src="../img/Rlogo.png" width="60px" height="auto"&gt;&lt;/h2&gt;
-
-&lt;h3&gt;Akwaba ✋&lt;/h3&gt;
 &lt;br/&gt;
-&lt;div class="author"&gt;
-  &lt;h3&gt;Anicet Ebou&lt;/h3&gt;
-&lt;/div&gt;
-&lt;h5&gt;2020-01-27 - 2020-01-29, Seminaire @ Agence Emploi Jeunes, Abidjan&lt;/h5&gt;
+.pull-left[
+&lt;h1&gt;L'analyse des données avec&lt;/h1&gt;
+]
+
+.pull-right[
+&lt;br/&gt;
+&lt;img src="../img/Rlogo.png" width="80%" height="auto"&gt;
+]
+&lt;h1 style="text-align:center;"&gt;Les outils de travail 🔨&lt;/h1&gt;
+&lt;h3 style="color:#162C9a; text-align:center;"&gt;Anicet Ebou&lt;/h3&gt;
+&lt;h5 style="text-align:center;"&gt;Seminaire @ Agence Emploi Jeunes, Abidjan&lt;br/&gt;
+2020-01-27 - 2020-01-29&lt;/h5&gt;
 
 ---
 
 class: center, middle, inverse
 
-# Qu'est ce que la data science?
+# La reproductibilité
 
 ---
 
-## Data Science ?
+## L'Analyse reproductible
 
-.quote[
-Data science is an exciting discipline that allows you to turn raw data into understanding, insight, and knowledge.
-
-Hadley Wickham - R for Data Science
+.question[
+Qu'est ce que c'est qu'une analyse de donnée 'reproductible' ?
 ]
 
 --
 
-- Il s'agit de tirer des **insights** de données brutes.
+A cours terme (lors d'un projet par exemple):
+- Est-ce que les figures et les tableaux peuvent être reproduis à partir des codes et données ?
+- Est-ce que le code fais, réagis comme on l'attends?
+- Sait-on en plus **pourquoi** les choses ont été faites comme cela?
 
---
+A long terme:
+- Peut-on utiliser le même code pour analyser d'autres données?
+- Le code peut-il être amélioré pour d'autres analyses?
+
+---
+
+## Les outils
+
+![toolkit](./img/toolkit.png)
+
+- R pour les scripts
+- R Markdown pour la programmation littérale
+- Git/Github pour la gestion des versions
+
+---
+
+class: center, middle, inverse
+
+## R et RStudio
+
+---
+
+# Qu'est ce que R/RStudio?
+
+- R est un langage de programmation statistique.
+- RStudio est une interface convenable pour R (IDE).
+- De facon plus simple: R est comme le moteur et RStudio est comme le tableau de bord.  
+
+![engine-dashboard](./img/engine-dashboard.png)
+
+.footnote[
+source: ModernDive
+]
+
+---
+
+## Un petit tour de R/RStudio
+
+- La console.
+- Utiliser R comme une calculatrice.
+- Environnement.
+- Charger et visualiser un tableau: programmaticallement et graphiquement.
+
+
+```r
+table &lt;- readxl::read_excel("dataframe.xlsx")
+View(table)
+```
+
+Panneau environnement `\(\rightarrow\)` import Dataset `\(\rightarrow\)` Selectionnez le type de fichier `\(\rightarrow\)` Selectionnez le fichier `\(\rightarrow\)` Definissez les parametres `\(\rightarrow\)` cliquer sur importer
+
+---
+
+## Un petit tour de R/RStudio
+
+- Accéder à une variable dans un tableau: avec le symbole $.
+
+
+```r
+table$var_name ou table[,numColumn]
+```
+
+- Fonctions dans R: ce sont la plupart du temps des verbes suivie de parenthèses.
+
+
+```r
+fais_ceci(a_ceci)
+fais_cela(a_ceci, a_cela, avec_ca)
+```
+
+- Les packages sont installés avec la fonction `install.packages()` et chargé avec la fonction `library()`:
+
+
+```r
+install.packages("package_name")
+library(package_name)
+```
+---
+
+## Tidyverse
+
+.pull-left[
+![](./img/tidyverse.png)
+]
+
+.pull-right[
+[tidyverse.org](https://tidyverse.org)
+
+- Tidyverse est une collection de paquets R conçus pour la data science.
+- Tous les packages partagent une même philosophie sous-jacente et une grammaire commune. 
+]
+---
+
+class: center, middle, inverse
+
+# R Markdown
+
+---
+
+## R Markdown
+
+- Rapports entièrement reproductibles: chaque fois que vous reconstruisez le fichier, l'analyse est exécutée depuis le début.
+- Une simple syntax utilisant markdown.
+- Les codes vont dans les chuncks, défini par trois backticks, les textes vont à l'extérieur des chuncks.
+
+---
+
+## Un petit tour de R Markdown
+
+- Ouvrir un document R Markdown.  
+- Construisez vos documents.  
+- R Markdown et certaines syntaxes.  
+
+---
+
+## EA 02 -
+
+---
+
+## R Markdown help
+
+.pull-left[
+[R Markdown cheat sheet](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf)
+![rmd-cheatsheet](./img/rmd-cheatsheet.png)
+]
+
+.pull-right[
+R Markdown Quick Reference  
+
+Help `\(\rightarrow\)` Markdown Quick Reference
+
+![rmd-cheat](./img/md-cheatsheet.png.jpeg)
+]
+---
+
+## Workspace
+
+Un élément essentiel duquel il faut a tout prix se rappeler: L'espace de travail du document **R Markdown** est différent de celui de la **console**.
+
+- Lancez cette commande dans la console:
+
+
+```r
+x &lt;-2
+x*4
+```
 
 .instructions[
-Objectif: Tirer des informations, parfois auquelles ont ne s'attends pas, des données brutes obtenues.
-]
----
-class: center, middle, inverse
-
-## Des exemples...
-
----
-
-## Analyse des tweets de Donald Trump
-
-.pull-left[
-"L'analyse des tweets de Trump confirme que les tweets venant reelement de lui sont colerique et viennent d'Android."
-
-David Robinson
-
-http://varianceexplained.org/r/trump-tweets/
+Tout semble bien se passer n'est ce pas?
 ]
 
-.pull-right[
-![](img/android_iphone_ratios_plot-1.svg)
-]
----
+- Maintenant lancez cette ligne dans le R Markdown:
 
-## Comment Alexa distingue les accents d'anglais?
+```r
+x*4
+```
 
-.pull-left[
-"Il y a une claire différence entre la longueur entre les mots entre les natifs et les non-natifs."
-
-Julia Silge
-
-https://juliasilge.com/blog/amazon-alexa/
+.instructions[
+Qu'est ce que vous remarquez?
 ]
 
-.pull-right[
-![](img/boxplot-1.png)
-]
----
-class: center, middle, inverse
-
-# Petite mise en bouche
-
 ---
 
-## Rejoignez RStudio Cloud
+## Comment il faudrait utiliser le R Markdown
 
-
-
----
-
-## EA - 01 AFRODS
-
+- Chaque projet, analyse, rapport, etc devrait être redigé dans un R Markdown.
+- C'est une habitude à prendre.
 
 ---
-class: center, middle, inverse
-
-## Code de conduite et de participation
-
----
-
-## Code de conduite et de participation
-
-- Tous les points de vue sont les bienvenus;
-
---
-- Tout le monde a le droit d'intervenir;
-
---
-- Tout le monde doit faire l'effort d'être à l'heure;
-
---
-- Eviter les propos désagréables envers ces collègues lors des sessions;
-
---
-- Participer et faire les applications;
-
---
-- Etre toujours souriant.
-
----
-
 class: center, middle
 
-# Fin de la premiere session !
-# Merci !
+## Fin de la deuxième session !
+## Merci !
 &lt;h1&gt; 👏 &lt;/h1&gt;
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>

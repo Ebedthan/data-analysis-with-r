@@ -8,20 +8,22 @@ output:
       highlightLines: true
       countIncrementalSlides: false
 ---
-class: middle, first-slide
+class: first-slide
 
+<br/>
 .pull-left[
-<p style="font-size: 62px;"><b>L'Analyse de données avec</b></p>
+<h1>L'analyse des données avec</h1>
 ]
 
 .pull-right[
-<img src="../img/Rlogo.png" width="100%" height="auto">
+<br/>
+<img src="../img/Rlogo.png" width="80%" height="auto">
 ]
-<h1 style="text-align:center;">A la découverte des outils `r emo::ji('hammer')`</h1>
-<div class="author">
-  <h3><a href="http://anicet.xyz">Anicet Ebou</a></h3>
-</div>
-<h4 style="text-align:center;">`r format(Sys.time(), "%a %d %b %Y")`, Seminaire @ Agence Emploi Jeunes, Abidjan</h4>
+<h1 style="text-align:center;">Les outils de travail `r emo::ji('tool')`</h1>
+<h3 style="color:#162C9a; text-align:center;">Anicet Ebou</h3>
+<h5 style="text-align:center;">Seminaire @ Agence Emploi Jeunes, Abidjan<br/>
+2020-01-27 - 2020-01-29</h5>
+
 ---
 
 class: center, middle, inverse
@@ -30,7 +32,7 @@ class: center, middle, inverse
 
 ---
 
-# L'Analyse reproductible
+## L'Analyse reproductible
 
 .question[
 Qu'est ce que c'est qu'une analyse de donnée 'reproductible' ?
@@ -38,9 +40,9 @@ Qu'est ce que c'est qu'une analyse de donnée 'reproductible' ?
 
 --
 
-A cours terme (lors d'un projet):
-- Est ce que les figures et les tableaux peuvent être reproduis à partir des codes et données ?
-- Est ce que le code fais, réagis comme on l'attends?
+A cours terme (lors d'un projet par exemple):
+- Est-ce que les figures et les tableaux peuvent être reproduis à partir des codes et données ?
+- Est-ce que le code fais, réagis comme on l'attends?
 - Sait-on en plus **pourquoi** les choses ont été faites comme cela?
 
 A long terme:
@@ -49,19 +51,19 @@ A long terme:
 
 ---
 
-# Les outils
+## Les outils
 
 ![toolkit](./img/toolkit.png)
 
-- Les scripts avec $\rightarrow$ R
-- La programmation littérale avec $\rightarrow$ RMarkdown
-- La gestion des versions $\rightarrow$ Git/Github
+- R pour les scripts
+- R Markdown pour la programmation littérale
+- Git/Github pour la gestion des versions
 
 ---
 
 class: center, middle, inverse
 
-# R and RStudio
+## R et RStudio
 
 ---
 
@@ -79,7 +81,7 @@ source: ModernDive
 
 ---
 
-# Un petit tour de R/RStudio
+## Un petit tour de R/RStudio
 
 - La console.
 - Utiliser R comme une calculatrice.
@@ -95,15 +97,15 @@ Panneau environnement $\rightarrow$ import Dataset $\rightarrow$ Selectionnez le
 
 ---
 
-# Un petit tour de R/RStudio
+## Un petit tour de R/RStudio
 
-- Acceder a une variable dans un tableau: avec le symbole $.
+- Accéder à une variable dans un tableau: avec le symbole $.
 
 ```{r eval=FALSE}
 table$var_name ou table[,numColumn]
 ```
 
-- Fonctions dans R: ce sont la plupart du temps des verbes suivie de parentheses.
+- Fonctions dans R: ce sont la plupart du temps des verbes suivie de parenthèses.
 
 ```{r eval=FALSE}
 fais_ceci(a_ceci)
@@ -118,7 +120,7 @@ library(package_name)
 ```
 ---
 
-# Tidyverse
+## Tidyverse
 
 .pull-left[
 ![](./img/tidyverse.png)
@@ -127,7 +129,7 @@ library(package_name)
 .pull-right[
 [tidyverse.org](https://tidyverse.org)
 
-- Le tidyverse est une collection de paquets R conçus pour la data science.
+- Tidyverse est une collection de paquets R conçus pour la data science.
 - Tous les packages partagent une même philosophie sous-jacente et une grammaire commune. 
 ]
 ---
@@ -138,7 +140,7 @@ class: center, middle, inverse
 
 ---
 
-# R Markdown
+## R Markdown
 
 - Rapports entièrement reproductibles: chaque fois que vous reconstruisez le fichier, l'analyse est exécutée depuis le début.
 - Une simple syntax utilisant markdown.
@@ -146,7 +148,7 @@ class: center, middle, inverse
 
 ---
 
-# Un petit tour de R Markdown
+## Un petit tour de R Markdown
 
 - Ouvrir un document R Markdown.  
 - Construisez vos documents.  
@@ -154,11 +156,11 @@ class: center, middle, inverse
 
 ---
 
-# EA 02 -
+## EA 02 -
 
 ---
 
-# R Markdown help
+## R Markdown help
 
 .pull-left[
 [R Markdown cheat sheet](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf)
@@ -174,7 +176,7 @@ Help $\rightarrow$ Markdown Quick Reference
 ]
 ---
 
-# Workspace
+## Workspace
 
 Un élément essentiel duquel il faut a tout prix se rappeler: L'espace de travail du document **R Markdown** est différent de celui de la **console**.
 
@@ -200,7 +202,7 @@ Qu'est ce que vous remarquez?
 
 ---
 
-# Comment il faudrait utiliser le R Markdown
+## Comment il faudrait utiliser le R Markdown
 
 - Chaque projet, analyse, rapport, etc devrait être redigé dans un R Markdown.
 - C'est une habitude à prendre.
@@ -208,6 +210,6 @@ Qu'est ce que vous remarquez?
 ---
 class: center, middle
 
-# Fin de la deuxieme session !
-# Merci !
+## Fin de la deuxième session !
+## Merci !
 <h1> `r emo::ji("clap")` </h1>
