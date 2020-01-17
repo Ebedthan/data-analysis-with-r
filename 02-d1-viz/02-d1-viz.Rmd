@@ -1,4 +1,5 @@
 ---
+pagetitle: "La visualisation des données"
 output:
   xaringan::moon_reader:
     seal: false

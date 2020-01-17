@@ -1,4 +1,5 @@
 ---
+pagetitle: "Akwaba à ce atelier"
 output:
   xaringan::moon_reader:
     seal: false
