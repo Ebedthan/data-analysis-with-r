@@ -9,16 +9,21 @@ output:
       highlightLines: true
       countIncrementalSlides: false
 ---
-class: center, middle, first-slide
+class: first-slide
 
-<p style="font-size: 48px;"><b>L'Analyse de données avec </b><img src="../img/Rlogo.png" width="60px" height="auto"></p>
-
-<h3>La visualisation des données `r emo::ji('graph')`</h3>
 <br/>
-<div class="author">
-  <h3>Anicet Ebou</h3>
-</div>
-<h5>2020-01-27 - 2020-01-29, Seminaire @ Agence Emploi Jeunes, Abidjan</h5>
+.pull-left[
+<h1>L'analyse des données avec</h1>
+]
+
+.pull-right[
+<br/>
+<img src="../img/Rlogo.png" width="80%" height="auto">
+]
+<h2 style="text-align:center;">La visualisation des données `r emo::ji('graph')`</h2>
+<h3 style="color:#162C9a; text-align:center;">Anicet Ebou</h3>
+<h5 style="text-align:center;">Seminaire @ Agence Emploi Jeunes, Abidjan<br/>
+2020-01-27 - 2020-01-29</h5>
 ---
 ```{r child = "../setup.Rmd"}
 ```
@@ -72,7 +77,7 @@ ggplot(data = agri, mapping = aes(x = land, y = agri_val_added)) +
        x = "agricultural land (%)", y = "Agriculture contribution to GDP (%)")
 ```
 .question[
-Quelles sont les fonctions pour desiner le graphe? Quelles sont les données utilisées pour le graphe? Quelles sont les variables en abscisse et en ordonnée? Que signifie le warning?
+Quelles sont les fonctions pour déssiner le graphe? Quelles sont les données utilisées pour le graphe? Quelles sont les variables en abscisse et en ordonnée? Que signifie le warning?
 ]
 
 ---
@@ -144,8 +149,8 @@ glimpse(agri)
 Combien de lignes et de colonnes contient ce tableau?
 ]
 
-- Vous pouvez lire sur le résultat de glimpse()
-- Ou pour un jeu de données integré en utilisant ?dataset: ` ?starwars`
+- Vous pouvez lire sur le résultat de `glimpse()`.
+- Ou pour un jeu de données integré en utilisant `?dataset`.
 
 ---
 
@@ -464,6 +469,6 @@ ggplot(data = starwars, mapping = aes(x = gender, fill = hair_color2)) +
 ---
 class: center, middle
 
-# Fin de la troisième session !
+## Fin de la troisième session !
 # Merci !
 <h1> `r emo::ji("clap")` </h1>

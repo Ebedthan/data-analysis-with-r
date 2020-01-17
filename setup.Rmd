@@ -44,13 +44,3 @@ knit_hooks$set(output = function(x, options) {
   hook_output(x, options)
 })
 ```
-layout: true
-
-<div class="my-footer">
-  <span>
-    Agence Emploi Jeunes, Abidjan - Séminaire de formation - 
-    Slides: <a href="https://anicet.xyz/" target="_blank">anicet.xyz</a>
-  </span>
-</div> 
-  
----

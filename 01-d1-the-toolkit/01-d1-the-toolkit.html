@@ -20,7 +20,7 @@ class: first-slide
 &lt;br/&gt;
 &lt;img src="../img/Rlogo.png" width="80%" height="auto"&gt;
 ]
-&lt;h1 style="text-align:center;"&gt;Les outils de travail 🔨&lt;/h1&gt;
+&lt;h1 style="text-align:center;"&gt;Les outils de travail 🔫&lt;/h1&gt;
 &lt;h3 style="color:#162C9a; text-align:center;"&gt;Anicet Ebou&lt;/h3&gt;
 &lt;h5 style="text-align:center;"&gt;Seminaire @ Agence Emploi Jeunes, Abidjan&lt;br/&gt;
 2020-01-27 - 2020-01-29&lt;/h5&gt;
@@ -29,7 +29,7 @@ class: first-slide
 
 class: center, middle, inverse
 
-# La reproductibilité
+# La reproductibilité dans les analyses de données
 
 ---
 
@@ -41,9 +41,9 @@ Qu'est ce que c'est qu'une analyse de donnée 'reproductible' ?
 
 --
 
-A cours terme (lors d'un projet par exemple):
-- Est-ce que les figures et les tableaux peuvent être reproduis à partir des codes et données ?
-- Est-ce que le code fais, réagis comme on l'attends?
+A cours terme:
+- Est-ce que les figures et les tableaux peuvent être reproduis à partir des codes et données disponible ?
+- Est-ce que le code réagis comme on l'attends?
 - Sait-on en plus **pourquoi** les choses ont été faites comme cela?
 
 A long terme:
@@ -52,23 +52,20 @@ A long terme:
 
 ---
 
-## Les outils
+## Les bonnes pratiques et les outils
 
-![toolkit](./img/toolkit.png)
+- Utiliser les projets RStudio.
+- Utiliser 📦 `here` pour la gestion des chemins vers les fichiers.
+- Initialiser le projet avec le gestionnaire de 📦 `renv`.
+- Définir les pipelines d'analyse avec 📦 `drake`.
+- Utiliser Git/Github pour la gestion des versions.
+- Rmarkdown pour la programmation littérale.
 
-- R pour les scripts
-- R Markdown pour la programmation littérale
-- Git/Github pour la gestion des versions
-
----
-
-class: center, middle, inverse
-
-## R et RStudio
+Visitez https://annakrystalli.me/talks/r-in-repro-research-dc.html pour plus de détails.
 
 ---
 
-# Qu'est ce que R/RStudio?
+## Qu'est ce que R/RStudio?
 
 - R est un langage de programmation statistique.
 - RStudio est une interface convenable pour R (IDE).
@@ -125,23 +122,11 @@ library(package_name)
 ```
 ---
 
-## Tidyverse
+## Projets dans RStudio
 
-.pull-left[
-![](./img/tidyverse.png)
-]
-
-.pull-right[
-[tidyverse.org](https://tidyverse.org)
-
-- Tidyverse est une collection de paquets R conçus pour la data science.
-- Tous les packages partagent une même philosophie sous-jacente et une grammaire commune. 
-]
----
-
-class: center, middle, inverse
-
-# R Markdown
+- Les projets dans RStudio permettent de garder les codes écrits pour une analyse ainsi que les données et autre matériel ensemble dans un même dossier.
+- Pour créer un nouveau projet: Fichier &gt; Nouveau projet &gt; Nouveau dossier.
+- Les projets RStudio sont portables et indépendant entre autres.
 
 ---
 
@@ -158,11 +143,6 @@ class: center, middle, inverse
 - Ouvrir un document R Markdown.  
 - Construisez vos documents.  
 - R Markdown et certaines syntaxes.  
-
----
-
-## EA 02 -
-
 ---
 
 ## R Markdown help
@@ -209,10 +189,30 @@ Qu'est ce que vous remarquez?
 
 ---
 
-## Comment il faudrait utiliser le R Markdown
+## Comment il faudrait utiliser R Markdown
 
 - Chaque projet, analyse, rapport, etc devrait être redigé dans un R Markdown.
 - C'est une habitude à prendre.
+
+---
+
+## Tidyverse
+
+.pull-left[
+![](./img/tidyverse.png)
+]
+
+.pull-right[
+[tidyverse.org](https://tidyverse.org)
+
+- Tidyverse est une collection de paquets R conçus pour la data science.
+- Tous les packages partagent une même philosophie sous-jacente et une grammaire commune. 
+]
+
+---
+## Reference
+
+- Mine CetinkayaRundel's Data Science box course: datasciencebox.org
 
 ---
 class: center, middle

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
   <head>
-    <title>02-d1-transform-viz.utf8</title>
+    <title>02-d1-viz.utf8</title>
     <meta charset="utf-8" />
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/font-awesome/css/all.css" rel="stylesheet" />
@@ -11,30 +11,24 @@
   <body>
     <textarea id="source">
 
-class: center, middle, first-slide
+class: first-slide
 
-&lt;p style="font-size: 48px;"&gt;&lt;b&gt;L'Analyse de données avec &lt;/b&gt;&lt;img src="../img/Rlogo.png" width="60px" height="auto"&gt;&lt;/p&gt;
-
-&lt;h3&gt;La visualisation des données 💹&lt;/h3&gt;
 &lt;br/&gt;
-&lt;div class="author"&gt;
-  &lt;h3&gt;Anicet Ebou&lt;/h3&gt;
-&lt;/div&gt;
-&lt;h5&gt;2020-01-27 - 2020-01-29, Seminaire @ Agence Emploi Jeunes, Abidjan&lt;/h5&gt;
+.pull-left[
+&lt;h1&gt;L'analyse des données avec&lt;/h1&gt;
+]
+
+.pull-right[
+&lt;br/&gt;
+&lt;img src="../img/Rlogo.png" width="80%" height="auto"&gt;
+]
+&lt;h2 style="text-align:center;"&gt;La visualisation des données 📈&lt;/h2&gt;
+&lt;h3 style="color:#162C9a; text-align:center;"&gt;Anicet Ebou&lt;/h3&gt;
+&lt;h5 style="text-align:center;"&gt;Seminaire @ Agence Emploi Jeunes, Abidjan&lt;br/&gt;
+2020-01-27 - 2020-01-29&lt;/h5&gt;
 ---
 
 
-layout: true
-
-&lt;div class="my-footer"&gt;
-  &lt;span&gt;
-    Agence Emploi Jeunes, Abidjan - Séminaire de formation
-    &lt;span&gt;&lt;/span&gt;
-    Slides: &lt;a href="https://anicet.xyz/" target="_blank"&gt;anicet.xyz&lt;/a&gt;
-  &lt;/span&gt;
-&lt;/div&gt; 
-  
----
 
 
 
@@ -87,7 +81,7 @@ ggplot(data = agri, mapping = aes(x = land, y = agri_val_added)) +
 ## Warning: Removed 3 rows containing missing values (geom_point).
 ```
 
-![](02-d1-transform-viz_files/figure-html/unnamed-chunk-3-1.png)&lt;!-- --&gt;
+![](02-d1-viz_files/figure-html/unnamed-chunk-3-1.png)&lt;!-- --&gt;
 .question[
 Quelles sont les fonctions pour desiner le graphe? Quelles sont les données utilisées pour le graphe? Quelles sont les variables en abscisse et en ordonnée? Que signifie le warning?
 ]
@@ -107,7 +101,7 @@ ggplot(data = agri, mapping = aes(x = land, y = agri_val_added)) +
 ## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 ```
 
-![](02-d1-transform-viz_files/figure-html/unnamed-chunk-4-1.png)&lt;!-- --&gt;
+![](02-d1-viz_files/figure-html/unnamed-chunk-4-1.png)&lt;!-- --&gt;
 .question[
 Quelle est la différence entre ce graphe et le précédent? Qu'est ce que geom_smooth() apporte de plus?
 ]
@@ -216,7 +210,7 @@ ggplot(data = agri, mapping = aes(x = land, y = agri_val_added)) +
 ## Warning: Removed 3 rows containing missing values (geom_point).
 ```
 
-![](02-d1-transform-viz_files/figure-html/unnamed-chunk-10-1.png)&lt;!-- --&gt;
+![](02-d1-viz_files/figure-html/unnamed-chunk-10-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -241,7 +235,7 @@ ggplot(data = agri, mapping = aes(x = land, y = agri_val_added)) +
 *      x = "agricultural land (%)", y = "Agriculture contribution to GDP (%)")
 ```
 
-![](02-d1-transform-viz_files/figure-html/unnamed-chunk-11-1.png)&lt;!-- --&gt;
+![](02-d1-viz_files/figure-html/unnamed-chunk-11-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -255,7 +249,7 @@ ggplot(data = agri, mapping = aes(x = year, y = industry_val_added)) +
 *      x = "Years", y = "Industry value added to GDP (%)")
 ```
 
-![](02-d1-transform-viz_files/figure-html/unnamed-chunk-12-1.png)&lt;!-- --&gt;
+![](02-d1-viz_files/figure-html/unnamed-chunk-12-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -297,7 +291,7 @@ ggplot(data = agri_all, mapping = aes(
          y = land, color = country)) + geom_point()
 ```
 
-![](02-d1-transform-viz_files/figure-html/unnamed-chunk-13-1.png)&lt;!-- --&gt;
+![](02-d1-viz_files/figure-html/unnamed-chunk-13-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -313,7 +307,7 @@ ggplot(data = agri_all, mapping = aes(
   )) + geom_point()
 ```
 
-![](02-d1-transform-viz_files/figure-html/unnamed-chunk-14-1.png)&lt;!-- --&gt;
+![](02-d1-viz_files/figure-html/unnamed-chunk-14-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -327,7 +321,7 @@ ggplot(data = agri_all, mapping = aes(
 * x = agri_val_added, y = land, color = country)) + geom_point(size = 2)
 ```
 
-![](02-d1-transform-viz_files/figure-html/unnamed-chunk-15-1.png)&lt;!-- --&gt;
+![](02-d1-viz_files/figure-html/unnamed-chunk-15-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -368,7 +362,7 @@ ggplot(data = agri_all, mapping = aes(
        x = "Land use", y = "Value added to GDP (%)")
 ```
 
-![](02-d1-transform-viz_files/figure-html/unnamed-chunk-16-1.png)&lt;!-- --&gt;
+![](02-d1-viz_files/figure-html/unnamed-chunk-16-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -392,7 +386,7 @@ ggplot(data = agri_all, mapping = aes(x = agri_val_added, y = land)) +
   facet_grid(country ~ .)
 ```
 
-![](02-d1-transform-viz_files/figure-html/unnamed-chunk-17-1.png)&lt;!-- --&gt;
+![](02-d1-viz_files/figure-html/unnamed-chunk-17-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -403,7 +397,7 @@ ggplot(data = agri_all, mapping = aes(x = agri_val_added, y = land)) +
   facet_grid(. ~ country)
 ```
 
-![](02-d1-transform-viz_files/figure-html/unnamed-chunk-18-1.png)&lt;!-- --&gt;
+![](02-d1-viz_files/figure-html/unnamed-chunk-18-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -414,7 +408,7 @@ ggplot(data = agri_all, mapping = aes(x = agri_val_added, y = land)) +
   facet_wrap(~ country)
 ```
 
-![](02-d1-transform-viz_files/figure-html/unnamed-chunk-19-1.png)&lt;!-- --&gt;
+![](02-d1-viz_files/figure-html/unnamed-chunk-19-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -475,7 +469,7 @@ ggplot(data = agri, mapping = aes(x = land)) +
   geom_histogram(binwidth = 1)
 ```
 
-![](02-d1-transform-viz_files/figure-html/unnamed-chunk-20-1.png)&lt;!-- --&gt;
+![](02-d1-viz_files/figure-html/unnamed-chunk-20-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -487,7 +481,7 @@ ggplot(data = agri, mapping = aes(x = land)) +
   geom_density()
 ```
 
-![](02-d1-transform-viz_files/figure-html/unnamed-chunk-21-1.png)&lt;!-- --&gt;
+![](02-d1-viz_files/figure-html/unnamed-chunk-21-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -499,7 +493,7 @@ ggplot(data = agri_all, mapping = aes(y = land, x = country)) +
   geom_boxplot()
 ```
 
-![](02-d1-transform-viz_files/figure-html/unnamed-chunk-22-1.png)&lt;!-- --&gt;
+![](02-d1-viz_files/figure-html/unnamed-chunk-22-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -517,7 +511,7 @@ ggplot(data = starwars, mapping = aes(x = gender)) +
   geom_bar()
 ```
 
-![](02-d1-transform-viz_files/figure-html/unnamed-chunk-23-1.png)&lt;!-- --&gt;
+![](02-d1-viz_files/figure-html/unnamed-chunk-23-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -529,7 +523,7 @@ ggplot(data = starwars, mapping = aes(x = gender, fill = hair_color)) +
   geom_bar()
 ```
 
-![](02-d1-transform-viz_files/figure-html/unnamed-chunk-24-1.png)&lt;!-- --&gt;
+![](02-d1-viz_files/figure-html/unnamed-chunk-24-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -542,7 +536,7 @@ ggplot(data = starwars, mapping = aes(x = gender, fill = hair_color)) +
   labs(y = "proportion")
 ```
 
-![](02-d1-transform-viz_files/figure-html/unnamed-chunk-25-1.png)&lt;!-- --&gt;
+![](02-d1-viz_files/figure-html/unnamed-chunk-25-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -559,7 +553,7 @@ starwars &lt;- starwars %&gt;%
                                  keep = c("black", "brown", "brown", "blond")))
 ```
 
-![](02-d1-transform-viz_files/figure-html/unnamed-chunk-27-1.png)&lt;!-- --&gt;![](02-d1-transform-viz_files/figure-html/unnamed-chunk-27-2.png)&lt;!-- --&gt;
+![](02-d1-viz_files/figure-html/unnamed-chunk-27-1.png)&lt;!-- --&gt;![](02-d1-viz_files/figure-html/unnamed-chunk-27-2.png)&lt;!-- --&gt;
 
 ---
 class: center, middle
