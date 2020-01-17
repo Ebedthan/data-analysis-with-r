@@ -1,5 +1,5 @@
 ---
-pagetitle: "Les outils pour l'analyse"
+pagetitle: "Les outils"
 output:
   xaringan::moon_reader:
     css: [default, ../slides.css]

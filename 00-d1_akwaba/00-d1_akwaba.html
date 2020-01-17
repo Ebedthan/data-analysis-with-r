@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
   <head>
-    <title>Les outils pour l’analyse</title>
+    <title>Akwaba</title>
     <meta charset="utf-8" />
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link rel="stylesheet" href="../slides.css" type="text/css" />
@@ -20,7 +20,7 @@ class: first-slide
 &lt;br/&gt;
 &lt;img src="../img/Rlogo.png" width="80%" height="auto"&gt;
 ]
-&lt;h1 style="text-align:center;"&gt;Les outils de travail ⚓&lt;/h1&gt;
+&lt;h1 style="text-align:center;"&gt;Akwaba ✋&lt;/h1&gt;
 &lt;h3 style="color:#162C9a; text-align:center;"&gt;Anicet Ebou&lt;/h3&gt;
 &lt;h5 style="text-align:center;"&gt;Seminaire @ Agence Emploi Jeunes, Abidjan&lt;br/&gt;
 2020-01-27 - 2020-01-29&lt;/h5&gt;
@@ -29,195 +29,119 @@ class: first-slide
 
 class: center, middle, inverse
 
-# La reproductibilité dans les analyses de données
+# Qu'est-ce que c'est la data science?
 
 ---
 
-## L'Analyse reproductible
+## Data Science ?
 
-.question[
-Qu'est ce que c'est qu'une analyse de donnée 'reproductible' ?
+.quote[
+Data science is an exciting discipline that allows you to turn raw data into understanding, insight, and knowledge.
+
+**Hadley Wickham - [R for Data Science](https://r4ds.had.co.nz/)**
 ]
 
 --
 
-A cours terme:
-- Est-ce que les figures et les tableaux peuvent être reproduis à partir des codes et données disponible ?
-- Est-ce que le code réagis comme on l'attends?
-- Sait-on en plus **pourquoi** les choses ont été faites comme cela?
+- Il s'agit de gagner de la **compréhension** et de tirer des **insights** à partir des données brutes.
+--
 
-A long terme:
-- Peut-on utiliser le même code pour analyser d'autres données?
-- Le code peut-il être amélioré pour d'autres analyses?
+- Objectif: Tirer des informations, parfois auquelles ont ne s'attends pas, des données brutes obtenues.
 
 ---
 
-## Les bonnes pratiques et les outils
+## Data Science # ML # AI
 
-- Utiliser les projets RStudio.
-- Utiliser 📦 `here` pour la gestion des chemins vers les fichiers.
-- Initialiser le projet avec le gestionnaire de 📦 `renv`.
-- Définir les pipelines d'analyse avec 📦 `drake`.
-- Utiliser Git/Github pour la gestion des versions.
-- Rmarkdown pour la programmation littérale.
+* La Data Science produit des insights.
+* L'Apprentisage machine produit des prédictions.
+* L'intelligence Artificielle produit des actions.
 
-Visitez https://annakrystalli.me/talks/r-in-repro-research-dc.html pour plus de détails.
+Dixit [David Robinson](https://varianceexplained.org/r/ds-ml-ai)
+
+
+---
+class: center, middle, inverse
+
+# Ce que la Data Science peut faire
 
 ---
 
-## Qu'est ce que R/RStudio?
-
-- R est un langage de programmation statistique.
-- RStudio est une interface convenable pour R (IDE).
-- De facon plus simple: R est comme le moteur et RStudio est comme le tableau de bord.  
-
-![engine-dashboard](./img/engine-dashboard.png)
-
-.footnote[
-source: ModernDive
-]
-
----
-
-## Un petit tour de R/RStudio
-
-- La console.
-- Utiliser R comme une calculatrice.
-- Environnement.
-- Charger et visualiser un tableau: programmaticallement et graphiquement.
-
-
-```r
-table &lt;- readxl::read_excel("dataframe.xlsx")
-View(table)
-```
-
-Panneau environnement `\(\rightarrow\)` import Dataset `\(\rightarrow\)` Selectionnez le type de fichier `\(\rightarrow\)` Selectionnez le fichier `\(\rightarrow\)` Definissez les parametres `\(\rightarrow\)` cliquer sur importer
-
----
-
-## Un petit tour de R/RStudio
-
-- Accéder à une variable dans un tableau: avec le symbole $.
-
-
-```r
-table$var_name ou table[,numColumn]
-```
-
-- Fonctions dans R: ce sont la plupart du temps des verbes suivie de parenthèses.
-
-
-```r
-fais_ceci(a_ceci)
-fais_cela(a_ceci, a_cela, avec_ca)
-```
-
-- Les packages sont installés avec la fonction `install.packages()` et chargé avec la fonction `library()`:
-
-
-```r
-install.packages("package_name")
-library(package_name)
-```
----
-
-## Projets dans RStudio
-
-- Les projets dans RStudio permettent de garder les codes écrits pour une analyse ainsi que les données et autre matériel ensemble dans un même dossier.
-- Pour créer un nouveau projet: Fichier &gt; Nouveau projet &gt; Nouveau dossier.
-- Les projets RStudio sont portables et indépendant entre autres.
-
----
-
-## R Markdown
-
-- Rapports entièrement reproductibles: chaque fois que vous reconstruisez le fichier, l'analyse est exécutée depuis le début.
-- Une simple syntax utilisant markdown.
-- Les codes vont dans les chuncks, défini par trois backticks, les textes vont à l'extérieur des chuncks.
-
----
-
-## Un petit tour de R Markdown
-
-- Ouvrir un document R Markdown.  
-- Construisez vos documents.  
-- R Markdown et certaines syntaxes.  
----
-
-## R Markdown help
+## Analyse des tweets de Donald Trump
 
 .pull-left[
-[R Markdown cheat sheet](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf)
-![rmd-cheatsheet](./img/rmd-cheatsheet.png)
+"L'analyse des tweets de Trump confirme que les tweets venant reelement de lui sont colerique et viennent d'Android."
+
+David Robinson
+
+http://varianceexplained.org/r/trump-tweets/
 ]
 
 .pull-right[
-R Markdown Quick Reference  
-
-Help `\(\rightarrow\)` Markdown Quick Reference
-
-![rmd-cheat](./img/md-cheatsheet.png.jpeg)
+![](img/android_iphone_ratios_plot-1.svg)
 ]
 ---
 
-## Workspace
-
-Un élément essentiel duquel il faut a tout prix se rappeler: L'espace de travail du document **R Markdown** est différent de celui de la **console**.
-
-- Lancez cette commande dans la console:
-
-
-```r
-x &lt;-2
-x*4
-```
-
-.instructions[
-Tout semble bien se passer n'est ce pas?
-]
-
-- Maintenant lancez cette ligne dans le R Markdown:
-
-```r
-x*4
-```
-
-.instructions[
-Qu'est ce que vous remarquez?
-]
-
----
-
-## Comment il faudrait utiliser R Markdown
-
-- Chaque projet, analyse, rapport, etc devrait être redigé dans un R Markdown.
-- C'est une habitude à prendre.
-
----
-
-## Tidyverse
+## Comment Alexa distingue les accents d'anglais?
 
 .pull-left[
-![](./img/tidyverse.png)
+"Il y a une claire différence entre la longueur entre les mots entre les natifs et les non-natifs."
+
+Julia Silge
+
+https://juliasilge.com/blog/amazon-alexa/
 ]
 
 .pull-right[
-[tidyverse.org](https://tidyverse.org)
-
-- Tidyverse est une collection de paquets R conçus pour la data science.
-- Tous les packages partagent une même philosophie sous-jacente et une grammaire commune. 
+![](img/boxplot-1.png)
 ]
+---
+class: center, middle, inverse
+
+# Il est temps de se jeter à...
 
 ---
-## Reference
 
-- Mine CetinkayaRundel's Data Science box course: datasciencebox.org
+## Rejoignez RStudio Cloud
+
+* Visitez rstudio.cloud
+* Connectez-vous avec votre compte Gmail
 
 ---
+
+## Application - 01 AFRODS
+
+* Connectez-vous à votre espace et cliquez sur le workspace du cours **AEJ-Workshop**.
+* Faites une copie du projet de cet exercice **Application-01-AFRODS** et ouvrez-le.
+* Dans l'onglet Fichier (en bas à droite), ouvrez le fichier `africanpopulation.Rmd` en cliquant dessus: Ensuite cliquez sur le bouton "Knit".
+* Retournez vers le fichier et changez le nom du au dessus du fichier dans l'entête (le yaml) et appuyez sur le bouton "knit" une fois de plus.
+* Changez ensuite le nom du pays vers celui qui vous interesse (des noms de pays Africains).
+
+---
+
+## Code de conduite et de participation
+
+- Tous les points de vue sont les bienvenus;
+
+--
+- Tout le monde a le droit d'intervenir;
+
+--
+- Tout le monde doit faire l'effort d'être à l'heure;
+
+--
+- Eviter les propos désagréables envers ces collègues lors des sessions;
+
+--
+- Participer et faire les applications;
+
+--
+- Etre toujours souriant.
+
+---
+
 class: center, middle
 
-## Fin de la deuxième session !
+## Fin de la premiere session !
 ## Merci !
 &lt;h1&gt; 👏 &lt;/h1&gt;
     </textarea>

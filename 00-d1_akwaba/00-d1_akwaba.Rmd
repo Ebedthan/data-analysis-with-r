@@ -1,5 +1,5 @@
 ---
-pagetitle: "Akwaba à ce atelier"
+pagetitle: "Akwaba"
 output:
   xaringan::moon_reader:
     seal: false
