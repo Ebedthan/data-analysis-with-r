@@ -4,11 +4,13 @@
 
 .first-slide .pull-left{
   margin-left: 35px;
+  font-size:28px;
 }
 
 .first-slide .pull-right{
-  text-align:center;
+  text-align: center;
 }
+
 .inverse {
   background-color: #3e424b;
   text-shadow: none;
