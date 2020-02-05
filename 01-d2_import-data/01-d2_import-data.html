@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
   <head>
-    <title>Akwaba</title>
+    <title>Importer et exporter les données</title>
     <meta charset="utf-8" />
-    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/all.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/v4-shims.css" rel="stylesheet" />
     <link rel="stylesheet" href="../slides.css" type="text/css" />
   </head>
   <body>
@@ -18,155 +20,170 @@ class: first-slide
 
 .pull-right[
 &lt;br/&gt;
-&lt;img src="../img/Rlogo.png" width="80%" height="auto"&gt;
+![:scale 80%](../img/Rlogo.png)
 ]
-&lt;h1 style="text-align:center;"&gt;Akwaba ✋&lt;/h1&gt;
+&lt;h2 style="text-align:center;"&gt;Importer et exporter les données 🗄&lt;/h2&gt;
 &lt;h3 style="color:#162C9a; text-align:center;"&gt;Anicet Ebou&lt;/h3&gt;
 &lt;h5 style="text-align:center;"&gt;Seminaire @ Agence Emploi Jeunes, Abidjan&lt;br/&gt;
-2020-02-07 - 2020-02-10&lt;/h5&gt;
+2020-01-27 - 2020-01-29&lt;/h5&gt;
+---
+
+
+
+
+
+class: center, middle, inverse
+
+# Importer les données
 
 ---
 
-## About me
+## Les types de fichiers
 
-- https://anicet.xyz
-- Ingénieur Bioinformaticien
-- Insights Data &amp; Science
-- R, Perl, Python, Bash, Ruby, Anglais, Francais par ordre de préférence.
-- Doctorant en Bionformatique
-- Développeur de certains packages R: tidygapminder, afrods
-- Initité la conférence satRday Abidjan
-- Abidjan R users principal organizer
+- Les fichiers texte (Flat files): comma separated value (csv), tab separated value (tsv), etc.
+- Les fichiers Excel: .xlsx ou .xls.
+- Les fichiers statistiques: SAS, SPSS, STATA.
+- Les bases de données: PostgreSQL, MySQL.
+- Les données du Web: Scrapping.
 
+---
+
+## Importer les fichiers textes
+
+Nous utiliserons les packages `readr` et `data.table` pour leur rapidité et leur consistance.
+
+- fichier.csv avec header:  
+`date,first_name,last_name,age`  
+`2020-01-01,john,doe,23`  
+`2020-01-02,jane,doe,25`  
+...  
+
+
+```r
+file_name &lt;- readr::read_csv("lien/vers/fichier.csv")
+```
+
+- fichier.csv sans header:  
+`2020-01-01,john,doe,23`  
+`2020-01-02,jane,doe,25`  
+... 
+
+
+```r
+file_name &lt;- readr::read_csv("lien/vers/fichier.csv", col_names = FALSE)
+```
+---
+
+## Importer les fichiers textes
+
+- fichier.tsv avec header:  
+`date\tfirst_name\tlast_name\tage`  
+`2020-01-01\tjohn\tdoe\t23`  
+`2020-01-02\tjane\tdoe\t25`  
+...  
+
+
+```r
+file_name &lt;- readr::read_tsv("lien/vers/fichier.csv")
+```
+
+- fichier.tsv sans header:  
+`2020-01-01\tjohn\tdoe\t23`  
+`2020-01-02\tjane\tdoe\t25`  
+... 
+
+
+```r
+file_name &lt;- readr::read_tsv("lien/vers/fichier.csv", col_names = FALSE)
+```
+---
+
+
+## Importer les fichiers textes
+
+La fonction `fread()` du package data.table détecte immédiatement le format du fichier et la présence ou non d'entête.
+
+- fichier.csv (fichier.tsv) avec header:  
+`date,first_name,last_name,age`  
+`2020-01-01,john,doe,23`  
+`2020-01-02,jane,doe,25`  
+...  
+
+
+```r
+file_name &lt;- data.table::fread("lien/vers/fichier.csv")
+```
+
+- fichier.csv (fichier.tsv) sans header:  
+`2020-01-01,john,doe,23`  
+`2020-01-02,jane,doe,25`  
+... 
+
+
+```r
+file_name &lt;- data.table::fread("lien/vers/fichier.csv")
+```
+---
+
+## Importer les fichiers Excel
+
+Si vous entrez vos données dans Excel avant de les importer dans R alors faites un fichier excel sans grand style pour l'importation. Nous utiliserons le package `readxl`.
+  
+![:scale 70%](./img/excel-file.png)
+  
+
+```r
+# pour les fichiers xlsx
+file_name &lt;- read_xlsx("lien/vers/fichier.xlsx")
+
+# pour les fichiers xls
+file_name &lt;- read_xls("lien/vers/fichier.xls")
+
+# si on n'est pas trop sur
+file_name &lt;- read_excel("lien/vers/fichier.xlsx")
+```
 ---
 
 class: center, middle, inverse
 
-# Qu'est-ce que c'est la data science?
+# Exporter les données
 
 ---
 
-## Data Science ?
-
-.quote[
-Data science is an exciting discipline that allows you to turn raw data into understanding, insight, and knowledge.
-
-**Hadley Wickham - [R for Data Science](https://r4ds.had.co.nz/)**
-]
-
---
-
-- Il s'agit de gagner de la **compréhension** et de tirer des **insights** à partir des données brutes.
---
-
-- Objectif: Tirer des informations, parfois auquelles ont ne s'attends pas, des données brutes obtenues.
-
----
-
-## Data Science # ML # AI
-
-* La Data Science produit des insights.
-* L'Apprentisage machine produit des prédictions.
-* L'intelligence Artificielle produit des actions.
-
-Dixit [David Robinson](https://varianceexplained.org/r/ds-ml-ai)
+## Exporter les données
 
 
----
-class: center, middle, inverse
+```r
+# Exporter en csv
+write_csv(objet, "fichier_export.csv")
 
-# Ce que la Data Science peut faire
+# Exporter en tsv
+write_tsv(objet, "fichier_export.tsv")
+
+# Convertir un fichier csv en excel
+write_excel_csv(objet, "fichier_export.xlsx")
+```
 
 ---
 
-## Analyse des tweets de Donald Trump
+## Les autres types de fichiers
 
-.pull-left[
-"L'analyse des tweets de Trump confirme que les tweets venant reelement de lui sont colerique et viennent d'Android."
-
-David Robinson
-
-http://varianceexplained.org/r/trump-tweets/
-]
-
-.pull-right[
-![](img/android_iphone_ratios_plot-1.svg)
-]
----
-
-## Comment Alexa distingue les accents d'anglais?
-
-.pull-left[
-"Il y a une claire différence entre la longueur entre les mots entre les natifs et les non-natifs."
-
-Julia Silge
-
-https://juliasilge.com/blog/amazon-alexa/
-]
-
-.pull-right[
-![](img/boxplot-1.png)
-]
----
-class: center, middle, inverse
-
-# Il est temps de se jeter à...
+- Le package **haven**  permet d'importer les fichiers de SPSS, SAS, STATA.
+- Le package **DBI** permet de communiquer avec les bases de donnees.
+- Le package **jsonlite** pour les fichiers json.
+- Le package **xml2** pour les fichiers xml
 
 ---
-
-## Rejoignez RStudio Cloud
-
-* Visitez rstudio.cloud
-* Connectez-vous avec votre compte Gmail
-
----
-
-## Application - 01 AFRODS
-
-* Connectez-vous à votre espace et cliquez sur le workspace du cours **AEJ-Workshop**.
-* Faites une copie du projet de cet exercice **Application-01-AFRODS** et ouvrez-le.
-* Dans l'onglet Fichier (en bas à droite), ouvrez le fichier `africanpopulation.Rmd` en cliquant dessus: Ensuite cliquez sur le bouton "Knit".
-* Retournez vers le fichier et changez le nom du au dessus du fichier dans l'entête (le yaml) et appuyez sur le bouton "knit" une fois de plus.
-* Changez ensuite le nom du pays vers celui qui vous interesse (des noms de pays Africains).
-
----
-
-## Code de conduite et de participation
-
-- Tous les points de vue sont les bienvenus;
-
---
-- Tout le monde a le droit d'intervenir;
-
---
-- Tout le monde doit faire l'effort d'être à l'heure;
-
---
-- Eviter les propos désagréables envers ces collègues lors des sessions;
-
---
-- Participer et faire les applications;
-
---
-- Etre toujours souriant.
-
----
-
-&lt;script&gt;
-   $(document).ready(function() {
-     $head = $('#header');
-     $head.prepend('&lt;img src=\"insights.png\" style=\"float: right;width: 150px;\"/&gt;')
-   });
-&lt;/script&gt;
-
 class: center, middle
 
-## Fin de la premiere session !
-## Merci !
+# Fin de la première session !
+## Jour 2
+# Merci !
 &lt;h1&gt; 👏 &lt;/h1&gt;
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="../macros.js"></script>
 <script>var slideshow = remark.create({
 "highlightStyle": "github",
 "highlightLines": true,

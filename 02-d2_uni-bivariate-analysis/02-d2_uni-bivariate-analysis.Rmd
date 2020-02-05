@@ -1,0 +1,156 @@
+---
+pagetitle: "Analyse uni- et bivariée"
+output:
+  xaringan::moon_reader:
+    seal: false
+    css: [default, ../slides.css]
+    lib_dir: libs
+    nature:
+      beforeInit: "../macros.js"
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+class: first-slide
+
+<br/>
+.pull-left[
+<h1>L'analyse des données avec</h1>
+]
+
+.pull-right[
+<br/>
+![:scale 80%](../img/Rlogo.png)
+]
+<h2 style="text-align:center;">Analyse uni- et bivariée `r emo::ji('multitask')`</h2>
+<h3 style="color:#162C9a; text-align:center;">Anicet Ebou</h3>
+<h5 style="text-align:center;">Seminaire @ Agence Emploi Jeunes, Abidjan<br/>
+2020-01-27 - 2020-01-29</h5>
+---
+```{r child = "../setup.Rmd"}
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+```
+
+class: center, middle, inverse
+
+# Analyse univariée
+
+---
+
+## Résumé statistique des données
+
+La fonction `summary()` nous donne un résumé statistique d'une variable aussi bien qualitative que quantitative.
+
+```{r}
+summary(diamonds$carat)
+```
+
+```{r}
+summary(diamonds$clarity)
+```
+---
+
+## Résumé statistique des données
+
+```{r output.lines=15}
+summary(diamonds)
+```
+
+---
+
+## Visualisation des variables
+
+```{r}
+ggplot(data = diamonds) +
+  geom_bar(mapping = aes(x = cut))
+```
+
+---
+
+## Visualisation des variables
+
+```{r}
+ggplot(data = diamonds) +
+  geom_histogram(mapping = aes(x = price))
+```
+
+---
+
+class: middle, inverse, center
+
+# Analyse bivariée
+
+---
+
+## Variables quantitatives
+
+Visualisons d'abord la relation entre ces variables.
+
+```{r}
+diamonds2 <- diamonds %>% select(carat, price)
+
+ggplot(data = diamonds2, mapping = aes(x = carat, y = price)) + geom_point()
+```
+
+---
+## Variables quantitatives
+
+On peut ensuite calculer la correlation entre ces deux variables.
+
+```{r}
+cor(diamonds2)
+```
+
+---
+## Variable quantitative/qualitative
+
+But: la distribution des valeurs dans la variable quantitative est la même selon les modalités de la variable qualitative. Plus simplement, on veut savoir si le prix des diamants varie selon la clarté du diamant.
+
+```{r fig.width=7}
+ggplot(data = diamonds) + 
+  geom_boxplot(mapping = aes(x = clarity, y = price))
+```
+
+---
+
+## Variable quantitative/qualitative
+
+On peut pour verifier cette relation faire une analyse de variance.
+
+```{r}
+res.aov <- aov(price ~ clarity, data = diamonds)
+
+summary(res.aov)
+```
+
+---
+
+## Variables qualitatives
+
+Dans le cas de deux variables qualitatives ont peut calculer le tableau de contingence avant de tester la dependance des variables avec le test Khi deux.
+
+```{r}
+diamonds2 <- diamonds %>% select(cut, clarity)
+
+pivot_table <- table(diamonds2$cut, diamonds2$clarity)
+
+pivot_table
+```
+---
+
+## Variables qualitatives
+
+```{r}
+chisq.test(pivot_table)
+```
+
+---
+class: center, middle
+
+# Fin de la première session !
+## Jour 2
+# Merci !
+<h1> `r emo::ji("clap")` </h1>

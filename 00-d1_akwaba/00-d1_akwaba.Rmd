@@ -24,7 +24,20 @@ class: first-slide
 <h1 style="text-align:center;">Akwaba `r emo::ji('hand')`</h1>
 <h3 style="color:#162C9a; text-align:center;">Anicet Ebou</h3>
 <h5 style="text-align:center;">Seminaire @ Agence Emploi Jeunes, Abidjan<br/>
-2020-01-27 - 2020-01-29</h5>
+2020-02-07 - 2020-02-10</h5>
+
+---
+
+## About me
+
+- https://anicet.xyz
+- Ingénieur Bioinformaticien
+- Insights Data & Science
+- R, Perl, Python, Bash, Ruby, Anglais, Francais par ordre de préférence.
+- Doctorant en Bionformatique
+- Développeur de certains packages R: tidygapminder, afrods
+- Initité la conférence satRday Abidjan
+- Abidjan R users principal organizer
 
 ---
 
@@ -139,6 +152,13 @@ class: center, middle, inverse
 - Etre toujours souriant.
 
 ---
+
+<script>
+   $(document).ready(function() {
+     $head = $('#header');
+     $head.prepend('<img src=\"insights.png\" style=\"float: right;width: 150px;\"/>')
+   });
+</script>
 
 class: center, middle
 

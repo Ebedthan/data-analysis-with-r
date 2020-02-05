@@ -1,20 +1,28 @@
 ```{r setup, include=FALSE}
 library(knitr)
 
+
 # R options
 options(
   htmltools.dir.version = FALSE, # for blogdown
   show.signif.stars = FALSE,     # for regression output
-  warn = 1
+  warn = 13
   )
+
+# Cache 
+knitr::opts_chunk$set(cache = TRUE)
+
 # figure height, width, dpi
 knitr::opts_chunk$set(fig.height = 2.5, fig.width = 5, dpi = 300) 
+
 # fontawesome
 htmltools::tagList(rmarkdown::html_dependency_font_awesome())
+
 # magick
 dev.off <- function(){
   invisible(grDevices::dev.off())
 }
+
 # code highlighting
 hook_source <- knitr::knit_hooks$get('source')
 knitr::knit_hooks$set(source = function(x, options) {

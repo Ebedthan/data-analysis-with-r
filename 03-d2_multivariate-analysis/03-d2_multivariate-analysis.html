@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <title>Analyse multivariée</title>
+    <meta charset="utf-8" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/all.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/v4-shims.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../slides.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+class: first-slide
+
+&lt;br/&gt;
+.pull-left[
+&lt;h1&gt;L'analyse des données avec&lt;/h1&gt;
+]
+
+.pull-right[
+&lt;br/&gt;
+![:scale 80%](../img/Rlogo.png)
+]
+&lt;h2 style="text-align:center;"&gt;Analyse multivariée 🤹&lt;/h2&gt;
+&lt;h3 style="color:#162C9a; text-align:center;"&gt;Anicet Ebou&lt;/h3&gt;
+&lt;h5 style="text-align:center;"&gt;Seminaire @ Agence Emploi Jeunes, Abidjan&lt;br/&gt;
+2020-01-27 - 2020-01-29&lt;/h5&gt;
+---
+class: center
+
+
+
+
+
+
+## Qu'est-ce qu'une analyse multivariée?
+
+![:scale 60%](./img/multi-1.png)
+
+---
+
+class: center
+## Qu'est-ce qu'une analyse multivariée?
+
+![:scale 60%](./img/multi-2.png)
+
+.footnote[
+Illustration extraite de «Qu’est-ce que l’analyse des données?»
+PENELON J. P. 1981 - LEFONEN Paris
+]
+
+---
+
+## Objectifs des analyses multivariées
+
+**Analyser simulaténament** les données dans leur ensemble, en prenant en compte toutes les variables.
+
+- Pour décrire et synthétiser: ACP, AFC, AFCM
+- Pour classifier c'est à dire regrouper les individus par la classification automatique et la typologie: CAH
+- Pour expliquer: regression multiple et AFD
+
+---
+
+class: middle, center, inverse
+
+# Méthodes de description
+
+---
+
+## Analyse en composantes principales (ACP)
+
+- But: mettre en évidence des similarités ou des oppositions entre variables et à repérer les variables les plus corrélées entre elles.
+- Intérêt: fournir une méthode de représentation (structuration) d'une population décrite par un ensemble de caractères.
+- Les modalités sont **quantitatives** (continues).
+
+---
+
+## Application 03 - Snail proteins
+
+- Ouvrez le projet snail proteins
+- Ouvrez le fichier snail-proteins-project.Rmd, changez le nom de l'auteur et compilez le document (knit)
+
+---
+
+## Analyse en composantes principales (ACP)
+
+
+```r
+# libs ----------
+library(factoextra)
+
+# import data ---
+snail &lt;- readxl::read_excel("./data/snail.xlsx")
+snail2 &lt;- snail[,-1]
+
+# perform pca ---
+res.pca &lt;- prcomp(snail2, scale = TRUE)
+
+# show result ---
+summary(res.pca)
+```
+
+```
+## Importance of components:
+##                           PC1    PC2    PC3     PC4     PC5
+## Standard deviation     1.7404 1.1363 0.7566 0.30887 0.11005
+## Proportion of Variance 0.6058 0.2582 0.1145 0.01908 0.00242
+## Cumulative Proportion  0.6058 0.8640 0.9785 0.99758 1.00000
+```
+---
+
+Les individus avec un profile similaire sont groupés ensemble.
+
+
+```r
+fviz_pca_ind(res.pca,
+             col.ind = "cos2",
+             gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"), repel = TRUE)
+```
+
+![](03-d2_multivariate-analysis_files/figure-html/unnamed-chunk-4-1.png)&lt;!-- --&gt;
+
+---
+
+Les variables correlées positivement pointent du même côté du graphique, les variables correlée négativement pointent dans le sens inverse.
+
+
+```r
+fviz_pca_var(res.pca, col.var = "contrib", 
+             gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"), repel = TRUE)
+```
+
+![](03-d2_multivariate-analysis_files/figure-html/unnamed-chunk-5-1.png)&lt;!-- --&gt;
+
+---
+
+## Analyse factorielle des correspondances (AFC)
+
+- But: décrire sous forme graphique le maximum de l'information contenu dans un tableau de contingence.
+- Intérêt: décrire la dépendance ou la concordance entre deux ensembles de caractères.
+- Les deux variables sont **qualitatives**, l'une ayant ses modalités en lignes et l'autre ses modalités en colonnes.
+
+---
+
+
+```r
+library(FactoMineR)
+
+diamonds2 &lt;- diamonds %&gt;% select(cut, clarity)
+
+diamonds2 &lt;- table(diamonds2)
+
+res.afc &lt;- CA(diamonds2, graph = FALSE)
+
+head(res.afc)
+```
+
+```
+## $eig
+##         eigenvalue percentage of variance cumulative percentage of variance
+## dim 1 0.0593710973             72.9261374                          72.92614
+## dim 2 0.0192401283             23.6328501                          96.55899
+## dim 3 0.0022471136              2.7601531                          99.31914
+## dim 4 0.0005543057              0.6808595                         100.00000
+## 
+## $call
+## $call$X
+##            I1  SI2  SI1  VS2  VS1 VVS2 VVS1   IF
+## Fair      210  466  408  261  170   69   17    9
+## Good       96 1081 1560  978  648  286  186   71
+## Very Good  84 2100 3240 2591 1775 1235  789  268
+## Premium   205 2949 3575 3357 1989  870  616  230
+## Ideal     146 2598 4282 5071 3589 2606 2047 1212
+...
+```
+
+---
+
+
+```r
+fviz_screeplot(res.afc, addlabels = TRUE)
+```
+
+![](03-d2_multivariate-analysis_files/figure-html/unnamed-chunk-7-1.png)&lt;!-- --&gt;
+
+---
+
+
+```r
+fviz_ca_biplot(res.afc, repel = TRUE)
+```
+
+![](03-d2_multivariate-analysis_files/figure-html/unnamed-chunk-8-1.png)&lt;!-- --&gt;
+
+---
+
+## Analyse (factorielle) des composantes multiples (ACM)
+
+
+```r
+data(tea)
+
+tea2 &lt;- tea %&gt;% select(breakfast, tea.time, always, work, tearoom, How, sugar)
+
+res.mca &lt;- MCA(tea2)
+
+fviz_mca_var(res.mca, col.var = "contrib",
+             gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"), 
+             repel = TRUE, # avoid text overlapping (slow)
+             ggtheme = theme_minimal())
+```
+
+---
+
+class: middle, center, inverse
+
+# Méthodes de classification
+
+---
+
+## Classification ascendante hiérarchique (CAH)
+
+- But: exploiter les données numériques d'un tableau pour **classer** les individus représentés dans ce tableau en des groupes constitués chacun d'éléments assez homogènes.
+- Le tableau est souvent representé sous forme de dendogramme.
+- Intérêt: donner une idée du nombre de classes existant effectivement dans la population.
+- La méthode est basée sur la détermination d'un critère de ressemblance entre les individus (**type de distance**) et la détermination d'un critère d'aggrégation des classes (**type d'algorithme**).
+
+---
+
+
+```r
+# data normalization
+USArrests &lt;- scale(USArrests)
+
+# dissimilarity matrix
+d &lt;- dist(USArrests, method = "euclidean")
+
+# hierarchical clustering using complete linkage
+hc &lt;- hclust(d, method = "complete")
+
+plot(hc, cex = 0.4)
+
+rect.hclust(hc, k = 4, border = 2:5)
+```
+
+![](03-d2_multivariate-analysis_files/figure-html/unnamed-chunk-10-1.png)&lt;!-- --&gt;
+
+---
+
+
+```r
+# cut tree into 4 groups
+usa_grp &lt;- cutree(hc, k = 4)
+
+# Draw the result in scatter plot
+fviz_cluster(list(data = USArrests, cluster = usa_grp))
+```
+
+![](03-d2_multivariate-analysis_files/figure-html/unnamed-chunk-11-1.png)&lt;!-- --&gt;
+---
+
+## Analyse factorielle - classification
+
+Cette méthode permet de combiner plusieurs méthodes d'analyse multivariée en une à la fois: 
+les analyses en composantes principales (ACP, AFC, ACM) et les méthodes de classification (CAH, K-means).
+
+- Variables quantitatives: ACP `\(\rightarrow\)` classification
+- Variables qualitatives: AFC `\(\rightarrow\)` classification
+
+---
+
+
+```r
+# compute PCA with ncp = 3
+res.pca &lt;- PCA(USArrests, ncp = 3, graph = FALSE)
+
+# compute hierarchical clustering on principal components
+res.hcpc &lt;- HCPC(res.pca, graph = FALSE)
+
+summary(res.hcpc)
+```
+
+```
+##            Length Class      Mode
+## data.clust 5      data.frame list
+## desc.var   3      catdes     list
+## desc.axes  3      catdes     list
+## call       8      -none-     list
+## desc.ind   2      -none-     list
+```
+
+---
+
+
+```r
+fviz_dend(res.hcpc, cex = 0.5, 
+          palette = "jco", rect = TRUE, 
+          rect_fill = TRUE, rect_border = "jco", 
+          labels_track_height = 0.8)
+```
+
+![](03-d2_multivariate-analysis_files/figure-html/unnamed-chunk-13-1.png)&lt;!-- --&gt;
+
+---
+
+
+```r
+fviz_cluster(res.hcpc, repel = TRUE,
+             show.clust.cent = TRUE, palette = "jco", 
+             ggtheme = theme_minimal())
+```
+
+![](03-d2_multivariate-analysis_files/figure-html/unnamed-chunk-14-1.png)&lt;!-- --&gt;
+
+---
+
+class: center, middle
+
+# Fin de la troisieme session !
+## Jour 2
+# Merci !
+&lt;h1&gt; 👏 &lt;/h1&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="../macros.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
