@@ -1,16 +1,10 @@
 ```{r setup, include=FALSE}
-library(knitr)
-
-
 # R options
 options(
   htmltools.dir.version = FALSE, # for blogdown
   show.signif.stars = FALSE,     # for regression output
-  warn = 13
+  warn = 1
   )
-
-# Cache 
-knitr::opts_chunk$set(cache = TRUE)
 
 # figure height, width, dpi
 knitr::opts_chunk$set(fig.height = 2.5, fig.width = 5, dpi = 300) 
@@ -31,8 +25,8 @@ knitr::knit_hooks$set(source = function(x, options) {
 })
 
 # Reduce output lines
-hook_output <- knit_hooks$get("output")
-knit_hooks$set(output = function(x, options) {
+hook_output <- knitr::knit_hooks$get("output")
+knitr::knit_hooks$set(output = function(x, options) {
   lines <- options$output.lines
   if (is.null(lines)) {
     return(hook_output(x, options))  # pass to default hook
@@ -52,3 +46,12 @@ knit_hooks$set(output = function(x, options) {
   hook_output(x, options)
 })
 ```
+
+layout: true
+  
+<div class="my-footer">
+<span>
+</span>
+</div>
+
+---

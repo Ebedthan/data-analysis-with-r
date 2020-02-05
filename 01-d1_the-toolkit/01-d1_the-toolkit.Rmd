@@ -5,24 +5,21 @@ output:
     css: [default, ../slides.css]
     lib_dir: libs
     nature:
+      beforeInit: "../macros.js"
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
+      ratio: 16:9
 ---
-class: first-slide
+class: first-slide, center
 
 <br/>
-.pull-left[
-<h1>L'analyse des données avec</h1>
-]
 
-.pull-right[
+<h1>L'analyse des données avec <img src="../img/Rlogo.png" width="10%" height="auto"></h1>
 <br/>
-<img src="../img/Rlogo.png" width="80%" height="auto">
-]
-<h1 style="text-align:center;">Les outils de travail `r emo::ji('tool')`</h1>
-<h3 style="color:#162C9a; text-align:center;">Anicet Ebou</h3>
-<h5 style="text-align:center;">Seminaire @ Agence Emploi Jeunes, Abidjan<br/>
+<h1>Les outils de travail `r emo::ji('tool')`</h1>
+<h3 style="color:#162C9a; text-align:center;">Anicet Ebou, Insights</h3>
+<h5">Seminaire @ Agence Emploi Jeunes, Abidjan<br/>
 2020-01-27 - 2020-01-29</h5>
 
 ---
@@ -36,7 +33,7 @@ class: center, middle, inverse
 ## L'Analyse reproductible
 
 .question[
-Qu'est ce que c'est qu'une analyse de donnée 'reproductible' ?
+Qu'est ce que c'est qu'une analyse de donnée 'réproductible' ?
 ]
 
 --
@@ -71,7 +68,7 @@ Visitez https://annakrystalli.me/talks/r-in-repro-research-dc.html pour plus de 
 - RStudio est une interface convenable pour R (IDE).
 - De facon plus simple: R est comme le moteur et RStudio est comme le tableau de bord.  
 
-![engine-dashboard](./img/engine-dashboard.png)
+![:scale 75%](./img/engine-dashboard.png)
 
 .footnote[
 source: ModernDive
@@ -125,6 +122,19 @@ library(package_name)
 - Les projets RStudio sont portables et indépendant entre autres.
 
 ---
+## R Markdown et Knitr: Yihui Xie
+
+.pull-left[
+![:scale 50%](./img/logo.png)
+]
+
+.pull-right[
+- [yihui.org](https://yihui.org)
+- Markdown, R, Pandoc
+- Plus beau, plus puissant, simplement avec R Markdown
+]
+
+---
 
 ## R Markdown
 
@@ -141,7 +151,7 @@ library(package_name)
 - R Markdown et certaines syntaxes.  
 ---
 
-## R Markdown help
+### R Markdown help
 
 .pull-left[
 [R Markdown cheat sheet](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf)
@@ -157,9 +167,9 @@ Help $\rightarrow$ Markdown Quick Reference
 ]
 ---
 
-## Workspace
+### Workspace
 
-Un élément essentiel duquel il faut a tout prix se rappeler: L'espace de travail du document **R Markdown** est différent de celui de la **console**.
+L'espace de travail du document **R Markdown** est différent de celui de la **console**.
 
 - Lancez cette commande dans la console:
 
@@ -204,9 +214,20 @@ Qu'est ce que vous remarquez?
 ]
 
 ---
-## Reference
+## Que retenir ?
 
-- Mine CetinkayaRundel's Data Science box course: datasciencebox.org
+- Toutes les analyses de données doivent (devraient être) être reproductibles.
+- Rstudio et certains package facilitent la conception d'analyses reproductibles.
+- R est le moteur, RStudio le tableau de bord.
+- R Markdown est incroyable, exceptionnel et unique.
+- L'espace de travail de R Markdown est différent de celui de R.
+- Tidyverse est la facon de penser Data Science.
+
+---
+
+## Thanks
+
+Mine CetinkayaRundel's Data Science box course: [datasciencebox.org](https://datasciencebox.org)
 
 ---
 class: center, middle

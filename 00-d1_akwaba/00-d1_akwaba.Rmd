@@ -1,5 +1,5 @@
 ---
-pagetitle: "Akwaba"
+pagetitle: "Bienvenue"
 output:
   xaringan::moon_reader:
     seal: false
@@ -9,22 +9,19 @@ output:
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
+      ratio: 16:9
 ---
-class: first-slide
+
+class: first-slide, center
 
 <br/>
-.pull-left[
-<h1>L'analyse des données avec</h1>
-]
 
-.pull-right[
+<h1>L'analyse des données avec <img src="../img/Rlogo.png" width="10%" height="auto"></h1>
 <br/>
-<img src="../img/Rlogo.png" width="80%" height="auto">
-]
-<h1 style="text-align:center;">Akwaba `r emo::ji('hand')`</h1>
-<h3 style="color:#162C9a; text-align:center;">Anicet Ebou</h3>
-<h5 style="text-align:center;">Seminaire @ Agence Emploi Jeunes, Abidjan<br/>
-2020-02-07 - 2020-02-10</h5>
+<h1>Bienvenue `r emo::ji('hand')`</h1>
+<h3 style="color:#162C9a; text-align:center;">Anicet Ebou, Insights</h3>
+<h5">Seminaire @ Agence Emploi Jeunes, Abidjan<br/>
+2020-01-27 - 2020-01-29</h5>
 
 ---
 
@@ -36,10 +33,12 @@ class: first-slide
 - R, Perl, Python, Bash, Ruby, Anglais, Francais par ordre de préférence.
 - Doctorant en Bionformatique
 - Développeur de certains packages R: tidygapminder, afrods
-- Initité la conférence satRday Abidjan
+- Inititiateur de la conférence satRday Abidjan
 - Abidjan R users principal organizer
 
 ---
+```{r child = "../setup.Rmd"}
+```
 
 class: center, middle, inverse
 
@@ -83,7 +82,7 @@ class: center, middle, inverse
 ## Analyse des tweets de Donald Trump
 
 .pull-left[
-"L'analyse des tweets de Trump confirme que les tweets venant reelement de lui sont colerique et viennent d'Android."
+"L'analyse des tweets de Trump confirme que les tweets venant reéllement de lui sont colérique et ont été posté à l'aide d'un téléphone Android."
 
 David Robinson
 
@@ -111,13 +110,13 @@ https://juliasilge.com/blog/amazon-alexa/
 ---
 class: center, middle, inverse
 
-# Il est temps de se jeter à...
+# De plein pieds
 
 ---
 
 ## Rejoignez RStudio Cloud
 
-* Visitez rstudio.cloud
+* Visitez [rstudio.cloud](rstudio.cloud)
 * Connectez-vous avec votre compte Gmail
 
 ---
@@ -132,7 +131,7 @@ class: center, middle, inverse
 
 ---
 
-## Code de conduite et de participation
+## Pour le succès de ce workshop
 
 - Tous les points de vue sont les bienvenus;
 
@@ -149,16 +148,9 @@ class: center, middle, inverse
 - Participer et faire les applications;
 
 --
-- Etre toujours souriant.
+- Etre toujours souriant.s
 
 ---
-
-<script>
-   $(document).ready(function() {
-     $head = $('#header');
-     $head.prepend('<img src=\"insights.png\" style=\"float: right;width: 150px;\"/>')
-   });
-</script>
 
 class: center, middle
 

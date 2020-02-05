@@ -3,12 +3,24 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
 
 .first-slide .pull-left{
-  margin-left: 35px;
+  margin-left: 60px;
   font-size:28px;
 }
 
 .first-slide .pull-right{
   text-align: center;
+}
+
+div.remark-slide-content.first-slide.hljs-github::after {
+  display: none;
+}
+
+div.remark-slide-content.center.middle.inverse.hljs-github::after {
+  display: none;
+}
+
+.remark-slide a{
+  text-decoration: underline;
 }
 
 .inverse {
@@ -36,8 +48,7 @@ p {
 
 /* Footer */
 div.my-footer {
-    background-color: #3e424b;
-    border-top: 1px solid #ffffff;
+    color: black;
     position: absolute;
     bottom: 0px;
     left: 80px;
@@ -47,14 +58,13 @@ div.my-footer {
 div.my-footer span {
     font-size: 12pt;
     position: absolute;
-    color: #fff;
+    color: black;
     left: 20px;
     bottom: 10px;
 }
-div.my-footer a {
-    font-size: 12pt;
+
+div.my-footer span .inverse {
     color: #fff;
-    text-decoration: underline;
 }
 
 /* Slide number */
@@ -72,11 +82,6 @@ div.my-footer a {
 
 .first-slide .remark-slide-number{
   display: none;
-  background-color: #ffffff;
-}
-
-.first-slide {
-  margin-top: 100px;
 }
 
 /* Custom boxes */
@@ -112,7 +117,7 @@ div.my-footer a {
 .quote {
   background-color: #3e424b;
   color: white;
-  font-size: 24px;
+  font-size: 22px;
   padding: 1px 16px;
   margin-top: 12px;
   margin-bottom: 12px;
@@ -143,14 +148,24 @@ li{
   font-family: 'Ubuntu Mono', monospace;
 }
 
-.remark-slide a{
-  color: #FFD027;
-}
-
 .pull-right {
   font-size: 20px;
 }
 
 .footnote{
   font-size: 14px;
+}
+
+/* Logo */
+.remark-slide-content:after {
+    content: "";
+    position: absolute;
+    bottom: 5px;
+    left: 50px;
+    right: 810px;
+    height: 89px;
+    width: 144px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url("insights-logo.png");
 }
