@@ -4,8 +4,7 @@
     <title>La manipulation des données</title>
     <meta charset="utf-8" />
     <link href="libs/remark-css/default.css" rel="stylesheet" />
-    <link href="libs/font-awesome/css/all.css" rel="stylesheet" />
-    <link href="libs/font-awesome/css/v4-shims.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/fontawesome-all.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="../slides.css" type="text/css" />
   </head>
   <body>
@@ -18,8 +17,9 @@ class: first-slide, center
 
 &lt;h1&gt;L'analyse des données avec &lt;img src="../img/Rlogo.png" width="10%" height="auto"&gt;&lt;/h1&gt;
 &lt;br/&gt;
-&lt;h1&gt;La manipulation des données 🧰&lt;/h1&gt;
+&lt;h1&gt;La manipulation des données 💉&lt;/h1&gt;
 &lt;h3 style="color:#162C9a; text-align:center;"&gt;Anicet Ebou, Insights&lt;/h3&gt;
+&lt;h5&gt;<i class="fab  fa-github "></i> @Ebedthan, <i class="fab  fa-twitter "></i> @anicetebou&lt;/h5&gt;
 &lt;h5"&gt;Seminaire @ Agence Emploi Jeunes, Abidjan&lt;br/&gt;
 2020-01-27 - 2020-01-29&lt;/h5&gt;
 
@@ -543,11 +543,11 @@ health %&gt;% sample_n(5, replace = FALSE)
 ```
 
 ```
-##   country          region year
-## 1  Malawi  Eastern Africa 1890
-## 2 Lesotho Southern Africa 1898
-## 3 Namibia Southern Africa 1771
-## 4 Eritrea  Eastern Africa 1799
+##             country          region year
+## 1        Mozambique  Eastern Africa 1790
+## 2         Swaziland Southern Africa 1850
+## 3 Equatorial Guinea   Middle Africa 1944
+## 4          Botswana Southern Africa 1766
 ...
 ```
 
@@ -559,10 +559,10 @@ health %&gt;% sample_frac(0.2, replace = FALSE)
 
 ```
 ##                       country          region year
-## 1                     Senegal  Western Africa 1833
-## 2                      Zambia  Eastern Africa 1966
-## 3                  Seychelles  Eastern Africa 1888
-## 4                     Algeria Northern Africa 1859
+## 1                  Cape Verde  Western Africa 1876
+## 2                       Sudan Northern Africa 1867
+## 3                Sierra Leone  Western Africa 1851
+## 4                    Ethiopia  Eastern Africa 1908
 ...
 ```
 ---

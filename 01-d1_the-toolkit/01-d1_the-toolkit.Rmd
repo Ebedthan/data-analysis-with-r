@@ -19,6 +19,7 @@ class: first-slide, center
 <br/>
 <h1>Les outils de travail `r emo::ji('tool')`</h1>
 <h3 style="color:#162C9a; text-align:center;">Anicet Ebou, Insights</h3>
+<h5>`r icon::fa_github()` @Ebedthan, `r icon::fa_twitter()` @anicetebou</h5>
 <h5">Seminaire @ Agence Emploi Jeunes, Abidjan<br/>
 2020-01-27 - 2020-01-29</h5>
 
