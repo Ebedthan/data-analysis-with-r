@@ -10,22 +10,20 @@ output:
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
+      ratio: 16:9
 ---
-class: first-slide
+
+class: first-slide, center
 
 <br/>
-.pull-left[
-<h1>L'analyse des données avec</h1>
-]
 
-.pull-right[
+<h1>L'analyse des données avec <img src="../img/Rlogo.png" width="10%" height="auto"></h1>
 <br/>
-![:scale 80%](../img/Rlogo.png)
-]
-<h2 style="text-align:center;">La manipulation des données `r emo::ji('tool')`</h2>
-<h3 style="color:#162C9a; text-align:center;">Anicet Ebou</h3>
-<h5 style="text-align:center;">Seminaire @ Agence Emploi Jeunes, Abidjan<br/>
+<h1>La manipulation des données `r emo::ji('tool')`</h1>
+<h3 style="color:#162C9a; text-align:center;">Anicet Ebou, Insights</h3>
+<h5">Seminaire @ Agence Emploi Jeunes, Abidjan<br/>
 2020-01-27 - 2020-01-29</h5>
+
 ---
 ```{r child = "../setup.Rmd"}
 ```
@@ -64,9 +62,7 @@ Les règles qui définissent les données ordonnées sont:
 
 ![](./img/tidy-1.png)
 
-.footnote[
-R for Data Science - Hadley Wickham, Garret Grolemund
-]
+credits: R for Data Science - Hadley Wickham, Garret Grolemund
 
 ---
 
@@ -109,7 +105,7 @@ glimpse(health)
 **dplyr** est basé sur des verbes (fonctions) qui facilitent la manipulation des données.
 
 .pull-left[
-![:scale 80%](./img/dplyr-part-of-tidyverse.png)
+![:scale 60%](./img/dplyr-part-of-tidyverse.png)
 ]
 
 .pull-right[
@@ -163,10 +159,10 @@ Equivaut à (avec la pipe)
 health %>% filter(country == "Cote d'Ivoire")
 ```
 
-%>% permet d'effectuer des opérations multiples sur les mêmes données plus facilement tout en gardant le code lisible.
-
 ---
 ## Introduisons l'opérateur pipe: %>%
+
+`%>%` permet d'effectuer des opérations multiples sur les mêmes données plus facilement tout en gardant le code lisible.
 
 Par exemple 
 ```{r eval=FALSE}
@@ -194,7 +190,7 @@ L'opérateur pipe est implementé dans le package **magrittr** et est prononcé 
 ![](./img/magrittr.jpg)
 ]
 ---
-## Filter sur plusieurs conditions à la fois
+## Filtrer sur plusieurs conditions à la fois
 
 Pour les données sur la Côte d'Ivoire entre 1960 et 2010
 
@@ -221,7 +217,7 @@ opérateur | définition          | | opérateur |  définition
 
 ## Comment les opérateurs logiques fonctionnent
 
-![:scale 70%](./img/transform-logical.png)
+![:scale 60%](./img/transform-logical.png)
 
 ```{r output.lines=4}
 health %>%
@@ -242,9 +238,6 @@ health %>% arrange(year)
 health %>% arrange(desc(year))
 ```
 
-.footnote[
-Note: les valeurs NA sont toujours mises à la fin.
-]
 ---
 
 ## Sélectionner un certain nombre de ligne avec `slice()`
@@ -343,6 +336,5 @@ health %>% count(region)
 class: center, middle
 
 # Fin de la première session !
-## Jour 2
 # Merci !
 <h1> `r emo::ji("clap")` </h1>

@@ -11,24 +11,28 @@
   <body>
     <textarea id="source">
 
-class: first-slide
+class: first-slide, center
 
 &lt;br/&gt;
-.pull-left[
-&lt;h1&gt;L'analyse des données avec&lt;/h1&gt;
-]
 
-.pull-right[
+&lt;h1&gt;L'analyse des données avec &lt;img src="../img/Rlogo.png" width="10%" height="auto"&gt;&lt;/h1&gt;
 &lt;br/&gt;
-&lt;img src="../img/Rlogo.png" width="80%" height="auto"&gt;
-]
-&lt;h2 style="text-align:center;"&gt;La visualisation des données 💹&lt;/h2&gt;
-&lt;h3 style="color:#162C9a; text-align:center;"&gt;Anicet Ebou&lt;/h3&gt;
-&lt;h5 style="text-align:center;"&gt;Seminaire @ Agence Emploi Jeunes, Abidjan&lt;br/&gt;
+&lt;h1&gt;La visualisation des données 📈&lt;/h1&gt;
+&lt;h3 style="color:#162C9a; text-align:center;"&gt;Anicet Ebou, Insights&lt;/h3&gt;
+&lt;h5"&gt;Seminaire @ Agence Emploi Jeunes, Abidjan&lt;br/&gt;
 2020-01-27 - 2020-01-29&lt;/h5&gt;
 ---
 
 
+
+layout: true
+  
+&lt;div class="my-footer"&gt;
+&lt;span&gt;
+&lt;/span&gt;
+&lt;/div&gt;
+
+---
 
 
 
@@ -57,7 +61,7 @@ class: center, middle, inverse
 ## ggplot2 `\(\in\)` tidyverse
 
 .pull-left[
-![](./img/ggplot2-part-of-tidyverse.png)
+![:scale 65%](./img/ggplot2-part-of-tidyverse.png)
 ]
 
 .pull-right[
@@ -69,68 +73,95 @@ class: center, middle, inverse
 
 ---
 
+![](02-d1_data-visualization_files/figure-html/unnamed-chunk-3-1.png)&lt;!-- --&gt;
+.question[
+Comment arrive t'on a dessiner ce genre de graphe avec ggplot2?
+]
+
+---
+
+## La grammaire des graphiques
+
 
 ```r
-ggplot(data = agri, mapping = aes(x = land, y = agri_val_added)) + 
-  geom_point() + 
-  labs(title = "Agriculture value added to GDP vs. Agricultural land (CI)", 
-       x = "agricultural land (%)", y = "Agriculture contribution to GDP (%)")
+ggplot(data = agri)
+```
+
+![](02-d1_data-visualization_files/figure-html/unnamed-chunk-4-1.png)&lt;!-- --&gt;
+
+---
+
+## La grammaire des graphiques
+
+
+```r
+ggplot(data = agri, mapping = aes(x = land, y = agri_val_added))
+```
+
+![](02-d1_data-visualization_files/figure-html/unnamed-chunk-5-1.png)&lt;!-- --&gt;
+
+---
+
+## La grammaire des graphiques
+
+
+```r
+ggplot(data = agri, mapping = aes(x = land, y = agri_val_added)) + geom_point()
 ```
 
 ```
 ## Warning: Removed 3 rows containing missing values (geom_point).
 ```
 
-![](02-d1-viz_files/figure-html/unnamed-chunk-3-1.png)&lt;!-- --&gt;
-.question[
-Quelles sont les fonctions pour déssiner le graphe? Quelles sont les données utilisées pour le graphe? Quelles sont les variables en abscisse et en ordonnée? Que signifie le warning?
-]
+![](02-d1_data-visualization_files/figure-html/unnamed-chunk-6-1.png)&lt;!-- --&gt;
 
 ---
 
+## La grammaire des graphiques
+
 
 ```r
-ggplot(data = agri, mapping = aes(x = land, y = agri_val_added)) + 
-  geom_point() + 
-* geom_smooth() +
-  labs(title = "Agriculture value added to GDP vs. Agricultural land (CI)", 
+ggplot(data = agri, mapping = aes(x = land, y = agri_val_added)) + geom_point() + geom_smooth()
+```
+
+![](02-d1_data-visualization_files/figure-html/unnamed-chunk-7-1.png)&lt;!-- --&gt;
+
+---
+
+## La grammaire des graphiques
+
+
+```r
+ggplot(data = agri, mapping = aes(x = land, y = agri_val_added)) + geom_point() + geom_smooth() + labs(title = "Agriculture value added to GDP vs. Agricultural land (CI)", 
        x = "agricultural land (%)", y = "Agriculture contribution to GDP (%)")
 ```
 
-```
-## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
-```
-
-![](02-d1-viz_files/figure-html/unnamed-chunk-4-1.png)&lt;!-- --&gt;
-.question[
-Quelle est la différence entre ce graphe et le précédent? Qu'est ce que geom_smooth() apporte de plus?
-]
+![](02-d1_data-visualization_files/figure-html/unnamed-chunk-8-1.png)&lt;!-- --&gt;
 
 ---
 
 ## Hi ggplot2!
 
 - ggplot() est la fonction principale du package ggplot2 et les graphiques sont construits **en couches**.
-- La structure du code des graphiques peut être synthétisé comme: 
+- La structure du code des graphiques peut être synthétisée comme suit: 
 
 
 ```r
 ggplot +
   geom_xxx
 ```
-ou plus précisement
+ou plus précisement:
 
 ```r
 ggplot(data = [dataset], mapping = aes(x = [x-variable], y = [y=variable])) +
-  geom_xxx() +
-  other_options
+  geom_xxx() + other_options
 ```
 
 - Il faut charger le package ggplot2 avant de pouvoir utiliser la fonction ggplot()
 
 
 ```r
-library(tidyverse)
+library(ggplot2)
 ```
 ---
 
@@ -139,6 +170,8 @@ class: middle, center, inverse
 # Visualisons une partie de afrods
 
 ---
+
+## Visualisons une partie de afrods
 
 .question[
 Que représente chaque colonne, chaque ligne?
@@ -210,13 +243,13 @@ ggplot(data = agri, mapping = aes(x = land, y = agri_val_added)) +
 ## Warning: Removed 3 rows containing missing values (geom_point).
 ```
 
-![](02-d1-viz_files/figure-html/unnamed-chunk-10-1.png)&lt;!-- --&gt;
+![](02-d1_data-visualization_files/figure-html/unnamed-chunk-14-1.png)&lt;!-- --&gt;
 
 ---
 
 ## Qu'est ce que c'est cette alerte?
 
-- Il existe des valeurs manquantes dans le jeu de données (d'ou 3 d'entre eux n'ont pas été pris en compte).
+- Il existe des valeurs manquantes dans le jeu de données (d'ou 3 d'entre elles n'ont pas été prises en compte).
 - Nous allons dans les futurs slides supprimer cette alerte pour faire un peu de place, cependant il est important de noter cela.
 
 ---
@@ -224,7 +257,7 @@ ggplot(data = agri, mapping = aes(x = land, y = agri_val_added)) +
 ## Value added vs land percentage
 
 .instructions[
-Comment décririez vous cette relation? Quel autres facteurs permetraient d'expliquer cette relation?
+Comment décririez vous cette relation? Quel autres facteurs permetraient d'expliquer cette allure?
 ]
 
 
@@ -235,11 +268,11 @@ ggplot(data = agri, mapping = aes(x = land, y = agri_val_added)) +
 *      x = "agricultural land (%)", y = "Agriculture contribution to GDP (%)")
 ```
 
-![](02-d1-viz_files/figure-html/unnamed-chunk-11-1.png)&lt;!-- --&gt;
+![](02-d1_data-visualization_files/figure-html/unnamed-chunk-15-1.png)&lt;!-- --&gt;
 
 ---
 
-## Diversification !!
+## Diversification de l'économie !!!
 
 
 ```r
@@ -249,13 +282,13 @@ ggplot(data = agri, mapping = aes(x = year, y = industry_val_added)) +
 *      x = "Years", y = "Industry value added to GDP (%)")
 ```
 
-![](02-d1-viz_files/figure-html/unnamed-chunk-12-1.png)&lt;!-- --&gt;
+![](02-d1_data-visualization_files/figure-html/unnamed-chunk-16-1.png)&lt;!-- --&gt;
 
 ---
 
 ## Variables additionnelles
 
-D'autres variables additionnelles peuvent être ajoutés:
+D'autres variables additionnelles peuvent être utilisées pour dessiner les graphiques:
 
 - aesthetics
   - shape
@@ -291,7 +324,7 @@ ggplot(data = agri_all, mapping = aes(
          y = land, color = country)) + geom_point()
 ```
 
-![](02-d1-viz_files/figure-html/unnamed-chunk-13-1.png)&lt;!-- --&gt;
+![](02-d1_data-visualization_files/figure-html/unnamed-chunk-17-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -301,13 +334,12 @@ Relions la taille (size) à l'année (year):
 
 
 ```r
-ggplot(data = agri_all, mapping = aes(
-  x = agri_val_added, y = land, color = country,
-* size = year
-  )) + geom_point()
+ggplot(data = agri_all, mapping = aes(x = agri_val_added, y = land, color = country, 
+*                                     size = year
+                                    )) + geom_point()
 ```
 
-![](02-d1-viz_files/figure-html/unnamed-chunk-14-1.png)&lt;!-- --&gt;
+![](02-d1_data-visualization_files/figure-html/unnamed-chunk-18-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -321,7 +353,7 @@ ggplot(data = agri_all, mapping = aes(
 * x = agri_val_added, y = land, color = country)) + geom_point(size = 2)
 ```
 
-![](02-d1-viz_files/figure-html/unnamed-chunk-15-1.png)&lt;!-- --&gt;
+![](02-d1_data-visualization_files/figure-html/unnamed-chunk-19-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -351,6 +383,8 @@ class: center, middle, inverse
 - Les sous-graphiques permettent d'afficher des echantillons plus petits du jeu de données.
 - Utile pour explorer les relations conditionnelles et les données volumineuses.
 
+---
+
 
 ```r
 ggplot(data = agri_all, mapping = aes(
@@ -362,7 +396,7 @@ ggplot(data = agri_all, mapping = aes(
        x = "Land use", y = "Value added to GDP (%)")
 ```
 
-![](02-d1-viz_files/figure-html/unnamed-chunk-16-1.png)&lt;!-- --&gt;
+![](02-d1_data-visualization_files/figure-html/unnamed-chunk-20-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -386,7 +420,7 @@ ggplot(data = agri_all, mapping = aes(x = agri_val_added, y = land)) +
   facet_grid(country ~ .)
 ```
 
-![](02-d1-viz_files/figure-html/unnamed-chunk-17-1.png)&lt;!-- --&gt;
+![](02-d1_data-visualization_files/figure-html/unnamed-chunk-21-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -397,7 +431,7 @@ ggplot(data = agri_all, mapping = aes(x = agri_val_added, y = land)) +
   facet_grid(. ~ country)
 ```
 
-![](02-d1-viz_files/figure-html/unnamed-chunk-18-1.png)&lt;!-- --&gt;
+![](02-d1_data-visualization_files/figure-html/unnamed-chunk-22-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -408,7 +442,7 @@ ggplot(data = agri_all, mapping = aes(x = agri_val_added, y = land)) +
   facet_wrap(~ country)
 ```
 
-![](02-d1-viz_files/figure-html/unnamed-chunk-19-1.png)&lt;!-- --&gt;
+![](02-d1_data-visualization_files/figure-html/unnamed-chunk-23-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -469,7 +503,7 @@ ggplot(data = agri, mapping = aes(x = land)) +
   geom_histogram(binwidth = 1)
 ```
 
-![](02-d1-viz_files/figure-html/unnamed-chunk-20-1.png)&lt;!-- --&gt;
+![](02-d1_data-visualization_files/figure-html/unnamed-chunk-24-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -481,7 +515,7 @@ ggplot(data = agri, mapping = aes(x = land)) +
   geom_density()
 ```
 
-![](02-d1-viz_files/figure-html/unnamed-chunk-21-1.png)&lt;!-- --&gt;
+![](02-d1_data-visualization_files/figure-html/unnamed-chunk-25-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -493,7 +527,7 @@ ggplot(data = agri_all, mapping = aes(y = land, x = country)) +
   geom_boxplot()
 ```
 
-![](02-d1-viz_files/figure-html/unnamed-chunk-22-1.png)&lt;!-- --&gt;
+![](02-d1_data-visualization_files/figure-html/unnamed-chunk-26-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -511,7 +545,7 @@ ggplot(data = starwars, mapping = aes(x = gender)) +
   geom_bar()
 ```
 
-![](02-d1-viz_files/figure-html/unnamed-chunk-23-1.png)&lt;!-- --&gt;
+![](02-d1_data-visualization_files/figure-html/unnamed-chunk-27-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -523,7 +557,7 @@ ggplot(data = starwars, mapping = aes(x = gender, fill = hair_color)) +
   geom_bar()
 ```
 
-![](02-d1-viz_files/figure-html/unnamed-chunk-24-1.png)&lt;!-- --&gt;
+![](02-d1_data-visualization_files/figure-html/unnamed-chunk-28-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -531,12 +565,10 @@ ggplot(data = starwars, mapping = aes(x = gender, fill = hair_color)) +
 
 
 ```r
-ggplot(data = starwars, mapping = aes(x = gender, fill = hair_color)) +
-  geom_bar(position = "fill") +
-  labs(y = "proportion")
+ggplot(data = starwars, mapping = aes(x = gender, fill = hair_color)) + geom_bar(position = "fill") + labs(y = "proportion")
 ```
 
-![](02-d1-viz_files/figure-html/unnamed-chunk-25-1.png)&lt;!-- --&gt;
+![](02-d1_data-visualization_files/figure-html/unnamed-chunk-29-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -547,13 +579,8 @@ Quel est le graphe en baton le plus approprié pour représenter la relation ent
 ]
 
 
-```r
-starwars &lt;- starwars %&gt;%
-  mutate(hair_color2 = fct_other(hair_color,
-                                 keep = c("black", "brown", "brown", "blond")))
-```
 
-![](02-d1-viz_files/figure-html/unnamed-chunk-27-1.png)&lt;!-- --&gt;![](02-d1-viz_files/figure-html/unnamed-chunk-27-2.png)&lt;!-- --&gt;
+![](02-d1_data-visualization_files/figure-html/unnamed-chunk-31-1.png)&lt;!-- --&gt;![](02-d1_data-visualization_files/figure-html/unnamed-chunk-31-2.png)&lt;!-- --&gt;
 
 ---
 class: center, middle
@@ -564,10 +591,12 @@ class: center, middle
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="../macros.js"></script>
 <script>var slideshow = remark.create({
 "highlightStyle": "github",
 "highlightLines": true,
-"countIncrementalSlides": false
+"countIncrementalSlides": false,
+"ratio": "16:9"
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));

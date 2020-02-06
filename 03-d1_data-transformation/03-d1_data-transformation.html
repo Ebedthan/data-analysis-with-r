@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
   <head>
     <title>La manipulation des données</title>
     <meta charset="utf-8" />
@@ -11,24 +11,30 @@
   <body>
     <textarea id="source">
 
-class: first-slide
+
+class: first-slide, center
 
 &lt;br/&gt;
-.pull-left[
-&lt;h1&gt;L'analyse des données avec&lt;/h1&gt;
-]
 
-.pull-right[
+&lt;h1&gt;L'analyse des données avec &lt;img src="../img/Rlogo.png" width="10%" height="auto"&gt;&lt;/h1&gt;
 &lt;br/&gt;
-![:scale 80%](../img/Rlogo.png)
-]
-&lt;h2 style="text-align:center;"&gt;La manipulation des données 🔬&lt;/h2&gt;
-&lt;h3 style="color:#162C9a; text-align:center;"&gt;Anicet Ebou&lt;/h3&gt;
-&lt;h5 style="text-align:center;"&gt;Seminaire @ Agence Emploi Jeunes, Abidjan&lt;br/&gt;
+&lt;h1&gt;La manipulation des données 🧰&lt;/h1&gt;
+&lt;h3 style="color:#162C9a; text-align:center;"&gt;Anicet Ebou, Insights&lt;/h3&gt;
+&lt;h5"&gt;Seminaire @ Agence Emploi Jeunes, Abidjan&lt;br/&gt;
 2020-01-27 - 2020-01-29&lt;/h5&gt;
+
 ---
 
 
+
+layout: true
+  
+&lt;div class="my-footer"&gt;
+&lt;span&gt;
+&lt;/span&gt;
+&lt;/div&gt;
+
+---
 
 
 
@@ -61,9 +67,7 @@ Les règles qui définissent les données ordonnées sont:
 
 ![](./img/tidy-1.png)
 
-.footnote[
-R for Data Science - Hadley Wickham, Garret Grolemund
-]
+credits: R for Data Science - Hadley Wickham, Garret Grolemund
 
 ---
 
@@ -140,7 +144,7 @@ glimpse(health)
 **dplyr** est basé sur des verbes (fonctions) qui facilitent la manipulation des données.
 
 .pull-left[
-![:scale 80%](./img/dplyr-part-of-tidyverse.png)
+![:scale 60%](./img/dplyr-part-of-tidyverse.png)
 ]
 
 .pull-right[
@@ -228,10 +232,10 @@ health %&gt;% filter(country == "Cote d'Ivoire")
 ...
 ```
 
-%&gt;% permet d'effectuer des opérations multiples sur les mêmes données plus facilement tout en gardant le code lisible.
-
 ---
 ## Introduisons l'opérateur pipe: %&gt;%
+
+`%&gt;%` permet d'effectuer des opérations multiples sur les mêmes données plus facilement tout en gardant le code lisible.
 
 Par exemple 
 
@@ -261,7 +265,7 @@ L'opérateur pipe est implementé dans le package **magrittr** et est prononcé 
 ![](./img/magrittr.jpg)
 ]
 ---
-## Filter sur plusieurs conditions à la fois
+## Filtrer sur plusieurs conditions à la fois
 
 Pour les données sur la Côte d'Ivoire entre 1960 et 2010
 
@@ -303,7 +307,7 @@ opérateur | définition          | | opérateur |  définition
 
 ## Comment les opérateurs logiques fonctionnent
 
-![:scale 70%](./img/transform-logical.png)
+![:scale 60%](./img/transform-logical.png)
 
 
 ```r
@@ -353,9 +357,6 @@ health %&gt;% arrange(desc(year))
 ...
 ```
 
-.footnote[
-Note: les valeurs NA sont toujours mises à la fin.
-]
 ---
 
 ## Sélectionner un certain nombre de ligne avec `slice()`
@@ -542,11 +543,11 @@ health %&gt;% sample_n(5, replace = FALSE)
 ```
 
 ```
-##    country          region year
-## 1     Mali  Western Africa 1871
-## 2  Eritrea  Eastern Africa 1868
-## 3 Tanzania  Eastern Africa 2004
-## 4  Nigeria  Western Africa 1879
+##   country          region year
+## 1  Malawi  Eastern Africa 1890
+## 2 Lesotho Southern Africa 1898
+## 3 Namibia Southern Africa 1771
+## 4 Eritrea  Eastern Africa 1799
 ...
 ```
 
@@ -558,10 +559,10 @@ health %&gt;% sample_frac(0.2, replace = FALSE)
 
 ```
 ##                       country          region year
-## 1                        Togo  Western Africa 1942
-## 2                       Kenya  Eastern Africa 1943
-## 3                Burkina Faso  Western Africa 1851
-## 4                      Uganda  Eastern Africa 1989
+## 1                     Senegal  Western Africa 1833
+## 2                      Zambia  Eastern Africa 1966
+## 3                  Seychelles  Eastern Africa 1888
+## 4                     Algeria Northern Africa 1859
 ...
 ```
 ---
@@ -589,17 +590,17 @@ health %&gt;% count(region)
 class: center, middle
 
 # Fin de la première session !
-## Jour 2
 # Merci !
 &lt;h1&gt; 👏 &lt;/h1&gt;
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
-<script src="macros.js"></script>
+<script src="../macros.js"></script>
 <script>var slideshow = remark.create({
 "highlightStyle": "github",
 "highlightLines": true,
-"countIncrementalSlides": false
+"countIncrementalSlides": false,
+"ratio": "16:9"
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));
